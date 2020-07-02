@@ -54,3 +54,33 @@ const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
         }
     }
 };
+
+/* section array */
+
+const section = ['A', 'B', 'C'];
+
+/* reserved timeslots for different sections */
+
+const reservedHrs = [
+    {
+        monday: [0, 0, 0, 0, 0],
+        tuesday: [0, 0, 0, 0, 0],
+        wednesday: [0, 0, 0, 0, 0],
+        thursday: [0, 0, 0, 0, 0],
+        friday: [0, 0, 0, 0, 0],
+    },
+    {
+        monday: [0, 0, 0, 0, 0],
+        tuesday: [0, 0, 0, 0, 0],
+        wednesday: [0, 0, 0, 0, 0],
+        thursday: [0, 0, 0, 0, 0],
+        friday: [0, 0, 0, 0, 0],
+    },
+    {
+        monday: [0, 0, 0, 0, 0],
+        tuesday: [0, 0, 0, 0, 0],
+        wednesday: [0, 0, 0, 0, 0],
+        thursday: [0, 0, 0, 0, 0],
+        friday: [0, 0, 0, 0, 0],
+    },
+];
