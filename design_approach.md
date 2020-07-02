@@ -51,6 +51,7 @@ After building and successfully testing the Simple Activity Scheduling Applicati
 - Genetic Algorithm 
 - Tree Search and Tabu Search Algorithm
 - Iterated Local Search Algorithm
+- Heurestic Approach
 
 ### Additional Parameters
 
