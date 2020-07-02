@@ -41,8 +41,9 @@ const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
 
             /* this loop checks whether we have a clash with other sections or not */
             while (
-                reservedHrs[[0]][day][index] === courseID ||
-                (reservedHrs[[1]][day][index] === courseID &&
+                (reservedHrs[[0]][day][index] === courseID ||
+                    reservedHrs[[1]][day][index] === courseID) &&
+                (reservedHrs[[1]][day][index] === courseID ||
                     reservedHrs[[2]][day][index] === courseID)
             ) {
                 index = Math.floor(Math.random() * 5);
@@ -103,7 +104,7 @@ const availableHrs = [
         friday: [1, 2, 3, 4, 5],
     },
     {
-        monday: [1, 2, 3, 0, 5],
+        monday: [1, 2, 3, 4, 5],
         tuesday: [1, 2, 3, 4, 5],
         wednesday: [1, 2, 3, 4, 5],
         thursday: [1, 2, 3, 4, 5],
