@@ -84,3 +84,31 @@ const reservedHrs = [
         friday: [0, 0, 0, 0, 0],
     },
 ];
+
+/* available timeslots for different section */
+
+const availableHrs = [
+    {
+        monday: [1, 2, 3, 4, 5],
+        tuesday: [1, 2, 3, 4, 5],
+        wednesday: [1, 2, 3, 4, 5],
+        thursday: [1, 2, 3, 4, 5],
+        friday: [1, 2, 3, 4, 5],
+    },
+    {
+        monday: [1, 2, 3, 4, 5],
+        tuesday: [1, 2, 3, 4, 5],
+        wednesday: [1, 2, 3, 4, 5],
+        thursday: [1, 2, 3, 4, 5],
+        friday: [1, 2, 3, 4, 5],
+    },
+    {
+        monday: [1, 2, 3, 0, 5],
+        tuesday: [1, 2, 3, 4, 5],
+        wednesday: [1, 2, 3, 4, 5],
+        thursday: [1, 2, 3, 4, 5],
+        friday: [1, 2, 3, 4, 5],
+    },
+];
+
+scheduler(121, 3, section, availableHrs, reservedHrs);
