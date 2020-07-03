@@ -36,23 +36,29 @@ const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
                 availableHrs[[i]][day][4] === 0
             ) {
                 nextDay++;
+                if (nextDay > 4) nextDay = 0;
                 day = days[nextDay];
             }
 
-            /* this loop checks whether we have a clash with other sections or not */
+            /* this loop checks whether we have a clash with other sections or not and it avoids course overwrite */
             while (
                 reservedHrs[[0]][day][index] === courseID ||
                 reservedHrs[[1]][day][index] === courseID ||
-                reservedHrs[[1]][day][index] === courseID ||
-                reservedHrs[[2]][day][index] === courseID
+                reservedHrs[[2]][day][index] === courseID ||
+                reservedHrs[[i]][day][index] !== 0
             ) {
                 index = Math.floor(Math.random() * 5);
+                nextDay++;
+                if (nextDay > 4) nextDay = 0;
+                day = days[nextDay];
             }
 
             /* setting the timeslot */
             availableHrs[[i]][day][index] = 0;
             reservedHrs[[i]][day][index] = courseID;
+
             nextDay++;
+            if (nextDay > 4) nextDay = 0;
         }
     }
 };
@@ -113,4 +119,10 @@ const availableHrs = [
     },
 ];
 
-scheduler(121, 3, section, availableHrs, reservedHrs);
+let courses = [101, 121, 131, 141, 151];
+
+for (let i = 0; i < courses.length; i++) {
+    scheduler(courses[i], 3, section, availableHrs, reservedHrs);
+}
+
+console.log(reservedHrs);
