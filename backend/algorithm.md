@@ -1,4 +1,4 @@
-# Algorithm 
+# Algorithm
 
 ## Parameters
 
@@ -17,7 +17,7 @@ SCHEDULER (courseID, creditHrs, section, availableHrs, reservedHrs)
 
     let length = section.length
 
-    for i=0 to length 
+    for i=0 to length
         let nextDay = 0
 
         for j=0 to creditHrs
@@ -26,14 +26,14 @@ SCHEDULER (courseID, creditHrs, section, availableHrs, reservedHrs)
 
             while availableHrs[i].day[1] == 0 and availableHrs[i].day[2] == 0 and availableHrs[i].day[3] and availableHrs[i].day[4] and availableHrs[i].day[5]
                 inc nextDay
-                if nextDay > 4 
+                if nextDay > 5
                     nextDay = 0
                 day = days[nextDay]
 
-            while reservedHrs[1].day[index] == courseID or reservedHrs[2].day[index] == courseID or reservedHrs[3].day[index] == courseID or reservedHrs[i].day[index] != 0     
+            while reservedHrs[1].day[index] == courseID or reservedHrs[2].day[index] == courseID or reservedHrs[3].day[index] == courseID or reservedHrs[i].day[index] != 0
                 index = rand[1,5]
                 inc nextDay
-                if nextDay > 4 
+                if nextDay > 5
                     nextDay = 0
                 day = days[nextDay]
 
@@ -41,14 +41,6 @@ SCHEDULER (courseID, creditHrs, section, availableHrs, reservedHrs)
             reservedHrs[i].day[index] = courseID
 
             inc nextDay
-            if nextDay > 4 
+            if nextDay > 5
                 nextDay = 0
 ```
-
-
-
-        
-
-
-                
-
