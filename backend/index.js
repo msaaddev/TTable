@@ -11,23 +11,18 @@
  */
 
 const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
-    /* A conditions to check the best place of the day */
-    /* A loop starts and it schedule a lecture of a common teacher at timeslot 2 on Monday. Now it can't schedule the same course class on the same timeslot on the same day. It must have to schedule it somewhere else */
-    /* We need to start a loop on available hours. How many times? Number of sections. */
-    /* 2 Loops: 3 Times because we have three sections. Another loop that iterates over availableHrs and sets reserrved hours */
-
     let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 
     /* this loop is to iterate over sections */
     for (let i = 0; i < section.length; i++) {
         let nextDay = 0;
 
-        /* this loop is to iterate over timeslots */
+        /* this loop is setting scheduling courses on different timeslots depending upon credit hours */
         for (let j = 0; j < creditHrs; j++) {
             let day = days[nextDay];
             let index = Math.floor(Math.random() * 5);
 
-            /* this loop checks whether we have any available timeslot in a day */
+            /* this loop executes if all the timeslots are booked in a day */
             while (
                 availableHrs[[i]][day][0] === 0 &&
                 availableHrs[[i]][day][1] === 0 &&
@@ -40,7 +35,8 @@ const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
                 day = days[nextDay];
             }
 
-            /* this loop checks whether we have a clash with other sections or not and it avoids course overwrite */
+            /* this loop executes to check whether we have a clash with
+            other sections and it also avoids course overwrite */
             while (
                 reservedHrs[[0]][day][index] === courseID ||
                 reservedHrs[[1]][day][index] === courseID ||
