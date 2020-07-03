@@ -120,9 +120,10 @@ const availableHrs = [
 ];
 
 let courses = [101, 121, 131, 141, 151];
+let creditHrs = [3, 2, 3, 2, 3];
 
 for (let i = 0; i < courses.length; i++) {
-    scheduler(courses[i], 3, section, availableHrs, reservedHrs);
+    scheduler(courses[i], creditHrs[i], section, availableHrs, reservedHrs);
 }
 
 console.log(reservedHrs);
