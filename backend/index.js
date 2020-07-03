@@ -21,10 +21,10 @@ const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
     /* this loop is to iterate over sections */
     for (let i = 0; i < section.length; i++) {
         let nextDay = 0;
-        let day = days[nextDay];
 
         /* this loop is to iterate over timeslots */
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < creditHrs; j++) {
+            let day = days[nextDay];
             let index = Math.floor(Math.random() * 5);
 
             /* this loop checks whether we have any available timeslot in a day */
@@ -52,6 +52,7 @@ const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
             /* setting the timeslot */
             availableHrs[[i]][day][index] = 0;
             reservedHrs[[i]][day][index] = courseID;
+            nextDay++;
         }
     }
 };
