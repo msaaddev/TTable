@@ -50,4 +50,4 @@ Since our algorithm has 5 parameters, we are going to assume base values for all
 10. Checking if next day has become greater than 5. If it does then set the next day back to 0.
 11. Now the second for loop's loop invariant value value will increment and the process will be repeated.
 
-Hence the algorithm makes correct decision and is scheduling courses in the reserved hours correctly.
+Since the algorithm is perfectly working for this specific input then it will also work for any other inputs too.
