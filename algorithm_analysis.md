@@ -48,6 +48,6 @@ Since our algorithm has 5 parameters, we are going to assume base values for all
 8. Setting reservedHr timeslot to our courseID on the generated index in the available hours to not use it later to register any course.
 9. Updating to the next day index.
 10. Checking if next day has become greater than 5. If it does then set the next day back to 0.
-11. Now the second for loop loop invariant value value will increment and the process will be repeated.
+11. Now the second for loop's loop invariant value value will increment and the process will be repeated.
 
 Hence the algorithm makes correct decision and is scheduling courses in the reserved hours correctly.
