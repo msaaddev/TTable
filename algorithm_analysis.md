@@ -6,7 +6,7 @@ The first thing we are going to do is algorithm correctness.
 
 ### Inductive Hypothesis
 
-The algorithm will generate a timetable without any clash for courseID[i] where i is the total number of courses taken.
+The algorithm will generate a timetable for all sections without any clash for courseID[i] where i is the total number of courses taken and section[j] where j is the total available sections.
 
 ### Base Case
 
