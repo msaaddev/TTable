@@ -1,11 +1,77 @@
-/* styles for homepage */
+/* styles for containers */
 
-.TT_container {
+.hp_container {
     display: flex;
+    font-family: 'Song Myung', serif;
+    overflow: hidden;
 }
 
-/* style for homepage image */
+.hp_sub_container_1 {
+    margin-top: 50px;
+    flex: 2;
+}
 
-#TT_homepage_img {
-    width: 50%;
+.hp_sub_container_2 {
+    flex: 1;
+}
+
+.hp_sign_up {
+    border: solid 1px;
+    border-radius: 10px;
+    margin: 150px 150px 0px 0px;
+    width: 350px;
+    height: 450px;
+    background-color: #ffffff;
+}
+
+.hp_sign_up_inputs {
+    margin: 35px 0px 0px 40px;
+}
+
+.hp_align_name,
+.hp_align_email,
+.hp_align_password {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 19px;
+    margin: 30px 0px;
+}
+
+.hp_align_name label,
+.hp_align_email label,
+.hp_align_password label {
+    flex: 1;
+}
+
+.hp_align_name input,
+.hp_align_email input,
+.hp_align_password input {
+    flex: 2;
+    margin-right: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #eaeaeb;
+    text-indent: 10px;
+    height: 30px;
+}
+
+.hp_align_name input:focus,
+.hp_align_email input:focus,
+.hp_align_password input:focus {
+    outline: none;
+}
+
+#hp_homepage_img {
+    width: 80%;
+}
+
+#tagline {
+    color: #ffffff;
+    font-style: italic;
+    margin: 0px 0px 0px 90px;
+}
+
+.hp_sub_container_2 h2 {
+    font-weight: 600;
+    margin: 50px 0px 0px 40px;
 }
