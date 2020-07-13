@@ -15,6 +15,20 @@
     flex: 1;
 }
 
+/* styles for homepage image and tagline */
+
+#hp_homepage_img {
+    width: 80%;
+}
+
+#tagline {
+    color: #ffffff;
+    font-style: italic;
+    margin: 0px 0px 0px 90px;
+}
+
+/* styles for sign up form */
+
 .hp_sign_up {
     border: solid 1px;
     border-radius: 10px;
@@ -61,17 +75,59 @@
     outline: none;
 }
 
-#hp_homepage_img {
-    width: 80%;
-}
-
-#tagline {
-    color: #ffffff;
-    font-style: italic;
-    margin: 0px 0px 0px 90px;
-}
-
-.hp_sub_container_2 h2 {
+.hp_sub_container_2 p {
+    font-size: 28px;
     font-weight: 600;
     margin: 50px 0px 0px 40px;
+}
+
+.hp_signup_btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.hp_signup_btn button {
+    background-color: #5f58e1;
+    padding: 10px 40px;
+    font-family: 'Song Myung', serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.hp_signup_btn button:focus {
+    outline: none;
+}
+
+.hp_signup_btn button:hover {
+    cursor: pointer;
+    background-color: #38393d;
+}
+
+.hp_signin {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.hp_signin h5 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.hp_signin h5 a {
+    color: #38393d;
+    transition: all 0.2s;
+    padding: 20px 2px;
+}
+
+.hp_signin h5 a:hover {
+    background-color: #38393d;
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 10px;
 }
