@@ -1,0 +1,11 @@
+/* styles for homepage */
+
+.TT_container {
+    display: flex;
+}
+
+/* style for homepage image */
+
+#TT_homepage_img {
+    width: 50%;
+}
