@@ -126,7 +126,7 @@
     }
 
     .lgn_login_form {
-        height: 300px;
+        flex-basis: 210px;
         margin: 10px 20px;
     }
 
@@ -148,7 +148,6 @@
         justify-content: center;
     }
     .lgn_img img {
-        /* width: 320px; */
         margin-right: 10px 20px;
         width: 110%;
     }
