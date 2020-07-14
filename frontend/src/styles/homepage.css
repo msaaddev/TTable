@@ -1,11 +1,172 @@
-/* styles for homepage */
+/* styles for containers */
 
-.TT_container {
+.hp_container {
     display: flex;
+    font-family: 'Song Myung', serif;
+    overflow: hidden;
 }
 
-/* style for homepage image */
+.hp_sub_container_1 {
+    margin: 70px 0px 0px 50px;
+    flex: 2;
+}
 
-#TT_homepage_img {
-    width: 50%;
+.hp_sub_container_2 {
+    flex: 1;
+}
+
+/* styles for homepage image and tagline */
+
+#hp_homepage_img {
+    width: 80%;
+}
+
+#tagline {
+    color: #ffffff;
+    font-style: italic;
+    margin: 0px 0px 0px 90px;
+}
+
+/* styles for sign up form */
+
+.hp_sub_container_2 p {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 50px 0px 0px 40px;
+}
+
+.hp_sign_up {
+    border: solid 1px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #ffffff;
+    margin: 150px 150px 0px 0px;
+    width: 350px;
+    height: 450px;
+    background-color: #ffffff;
+    transition: all 0.5s;
+}
+
+.hp_sign_up:hover {
+    box-shadow: 0px 0px 35px #5f58e1;
+}
+
+.hp_sign_up_inputs {
+    margin: 35px 0px 0px 40px;
+}
+
+.hp_align_name,
+.hp_align_email,
+.hp_align_password {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 19px;
+    margin: 30px 0px;
+}
+
+.hp_align_name label,
+.hp_align_email label,
+.hp_align_password label {
+    flex: 1;
+}
+
+.hp_align_name input,
+.hp_align_email input,
+.hp_align_password input {
+    flex: 2;
+    margin-right: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #eaeaeb;
+    text-indent: 10px;
+    height: 30px;
+}
+
+.hp_align_name input:focus,
+.hp_align_email input:focus,
+.hp_align_password input:focus {
+    outline: none;
+}
+
+.hp_signup_btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.hp_signup_btn button {
+    background-color: #5f58e1;
+    padding: 10px 40px;
+    font-family: 'Song Myung', serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.hp_signup_btn button:focus {
+    outline: none;
+}
+
+.hp_signup_btn button:hover {
+    cursor: pointer;
+    background-color: #38393d;
+}
+
+.hp_signin {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.hp_signin h5 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.hp_signin h5 a {
+    color: #38393d;
+    transition: all 0.2s;
+    padding: 20px 2px;
+    border-radius: 10px;
+}
+
+.hp_signin h5 a:hover {
+    background-color: #38393d;
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 10px;
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .hp_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hp_sub_container_1 {
+        margin: 30px 0px 0px 0px;
+        flex: 1;
+    }
+
+    #hp_homepage_img {
+        width: 100%;
+    }
+
+    #tagline {
+        color: #ffffff;
+        font-style: italic;
+        margin: 0px;
+        text-align: center;
+    }
+
+    .hp_sign_up {
+        margin: 50px 30px 50px 33px;
+        width: 80%;
+        height: 100%;
+    }
 }
