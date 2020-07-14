@@ -7,6 +7,7 @@ import Nav from './Nav';
 const Login = () => {
     return (
         <div className='lgn_container'>
+            <Nav userName='' appName={data.app_name} />
             <div className='lgn_subcontainer_2'>
                 <div className='lgn_login_form'>
                     <div className='lgn_input_fields'>
