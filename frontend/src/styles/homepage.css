@@ -7,7 +7,7 @@
 }
 
 .hp_sub_container_1 {
-    margin-top: 50px;
+    margin: 70px 0px 0px 50px;
     flex: 2;
 }
 
@@ -29,13 +29,25 @@
 
 /* styles for sign up form */
 
+.hp_sub_container_2 p {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 50px 0px 0px 40px;
+}
+
 .hp_sign_up {
     border: solid 1px;
     border-radius: 10px;
+    box-shadow: 0px 0px 15px #ffffff;
     margin: 150px 150px 0px 0px;
     width: 350px;
     height: 450px;
     background-color: #ffffff;
+    transition: all 0.5s;
+}
+
+.hp_sign_up:hover {
+    box-shadow: 0px 0px 35px #5f58e1;
 }
 
 .hp_sign_up_inputs {
@@ -73,12 +85,6 @@
 .hp_align_email input:focus,
 .hp_align_password input:focus {
     outline: none;
-}
-
-.hp_sub_container_2 p {
-    font-size: 28px;
-    font-weight: 600;
-    margin: 50px 0px 0px 40px;
 }
 
 .hp_signup_btn {
@@ -123,6 +129,7 @@
     color: #38393d;
     transition: all 0.2s;
     padding: 20px 2px;
+    border-radius: 10px;
 }
 
 .hp_signin h5 a:hover {
