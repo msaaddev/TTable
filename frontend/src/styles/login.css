@@ -1,0 +1,104 @@
+/* styles for container */
+
+.lgn_container {
+    font-family: 'Song Myung', serif;
+    overflow: hidden;
+}
+
+.lgn_subcontainer_1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lgn_subcontainer_1 h2 {
+    color: #ffffff;
+    font-size: 55px;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 30px 100px;
+}
+
+.lgn_subcontainer_1 h4 {
+    color: #ffffff;
+    font-size: 25px;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 40px 100px;
+}
+
+.lgn_subcontainer_2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lgn_login_form {
+    height: 160px;
+    flex: 1.5;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    margin: 50px 0px 50px 100px;
+}
+
+.lgn_img {
+    flex: 1;
+}
+
+.lgn_input_fields {
+    margin: 20px 50px;
+}
+
+.lgn_align_email,
+.lgn_align_password {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 19px;
+    margin: 25px 0px;
+}
+
+.lgn_align_email label,
+.lgn_align_password label {
+    flex: 1;
+}
+
+.lgn_align_email input,
+.lgn_align_password input {
+    flex: 2;
+    margin-right: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #eaeaeb;
+    text-indent: 10px;
+    height: 30px;
+}
+
+.lgn_align_email input:focus,
+.lgn_align_password input:focus {
+    outline: none;
+}
+
+.lgn_btn button {
+    margin-left: 50px;
+    background-color: #5f58e1;
+    padding: 10px 60px;
+    font-family: 'Song Myung', serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.lgn_btn button:focus {
+    outline: none;
+}
+
+.lgn_btn button:hover {
+    cursor: pointer;
+    background-color: #2a2d32;
+    box-shadow: 0px 0px 25px #5f58e1;
+}
+
+.lgn_img {
+    margin: 200px 100px 0px 0px;
+}
+
