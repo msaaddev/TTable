@@ -138,3 +138,35 @@
     padding: 8px 20px;
     border-radius: 10px;
 }
+
+/* responsive styles */
+
+@media screen and (max-width: 992px) {
+    .hp_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hp_sub_container_1 {
+        margin: 30px 0px 0px 0px;
+        flex: 1;
+    }
+
+    #hp_homepage_img {
+        width: 100%;
+    }
+
+    #tagline {
+        color: #ffffff;
+        font-style: italic;
+        margin: 0px;
+        text-align: center;
+    }
+
+    .hp_sign_up {
+        margin: 50px 30px 50px 30px;
+        width: 80%;
+        height: 100%;
+    }
+}
