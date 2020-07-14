@@ -169,4 +169,16 @@
         width: 80%;
         height: 100%;
     }
+    .hp_align_name,
+    .hp_align_email,
+    .hp_align_password {
+        flex-direction: column;
+        height: 60px;
+    }
+
+    .hp_align_name label,
+    .hp_align_email label,
+    .hp_align_password label {
+        margin-bottom: 5px;
+    }
 }
