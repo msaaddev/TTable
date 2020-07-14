@@ -102,3 +102,54 @@
     margin: 200px 100px 0px 0px;
 }
 
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .lgn_subcontainer_1 {
+        justify-content: space-between;
+    }
+    .lgn_subcontainer_1 h2 {
+        font-size: 30px;
+        margin: 20px 0px 20px 30px;
+    }
+
+    .lgn_subcontainer_1 h4 {
+        color: #ffffff;
+        font-size: 30px;
+        margin: 20px 30px 20px 0px;
+    }
+
+    .lgn_subcontainer_2 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .lgn_login_form {
+        height: 300px;
+        margin: 10px 20px;
+    }
+
+    .lgn_align_email label,
+    .lgn_align_password label {
+        flex: 1;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .lgn_align_email input,
+    .lgn_align_password input {
+        margin-right: 0px;
+    }
+
+    .lgn_img {
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+    }
+    .lgn_img img {
+        /* width: 320px; */
+        margin-right: 10px 20px;
+        width: 110%;
+    }
+}
