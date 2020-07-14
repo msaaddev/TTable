@@ -11,7 +11,7 @@ const SignUp = () => {
                 </div>
                 <div className='hp_align_email'>
                     <label htmlFor='Email'>Email</label>
-                    <input type='text' id='hp_signup_email' />
+                    <input type='email' id='hp_signup_email' />
                 </div>
                 <div className='hp_align_password'>
                     <label htmlFor='Password'>Password</label>
