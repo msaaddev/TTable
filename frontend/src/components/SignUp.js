@@ -3,7 +3,9 @@ import React from 'react';
 const SignUp = () => {
     return (
         <div className='hp_sign_up'>
-            <p>👨🏻‍💻 Create An Account</p>
+            <p>
+                <span role='img'>👨🏻‍💻</span> Create An Account
+            </p>
             <div className='hp_sign_up_inputs'>
                 <div className='hp_align_name'>
                     <label htmlFor='Name'>Name</label>
