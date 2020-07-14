@@ -141,7 +141,7 @@
 
 /* responsive styles */
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 600px) {
     .hp_container {
         display: flex;
         flex-direction: column;
@@ -165,7 +165,7 @@
     }
 
     .hp_sign_up {
-        margin: 50px 30px 50px 30px;
+        margin: 50px 30px 50px 33px;
         width: 80%;
         height: 100%;
     }
