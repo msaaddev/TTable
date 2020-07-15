@@ -1,0 +1,92 @@
+/* styles for containers */
+
+.db_container {
+    font-family: 'Song Myung', serif;
+    overflow: hidden;
+}
+
+.db_subcontainer_tables {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.db_timetable {
+    background-color: #ffffff;
+    margin: 20px 0px;
+    width: 600px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.5s;
+}
+
+.db_timetable:hover {
+    box-shadow: 0px 0px 70px #5f58e1;
+    transform: scale(1.2);
+}
+
+.db_timetable:nth-child(1) {
+    margin: 80px 0px 20px 0px;
+}
+
+.db_timetable_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.db_timetable p {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.db_timetable button,
+.db_timetable_btn button {
+    margin: 10px 20px;
+    padding: 0px 60px;
+    background-color: #5f58e1;
+    font-family: 'Song Myung', serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.db_timetable button:focus,
+.db_timetable_btn button:focus {
+    outline: none;
+}
+
+.db_timetable button:hover {
+    cursor: pointer;
+    background-color: #38393d;
+}
+
+.db_timetable_btn button {
+    margin: 20px 0px 60px 0px;
+    padding: 15px 60px !important;
+}
+
+.db_timetable_btn button:hover {
+    cursor: pointer;
+    background-color: #2a2d32;
+    box-shadow: 0px 0px 50px #5f58e1;
+    transform: scale(1.1);
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .db_timetable {
+        margin: 20px 10px;
+        width: 95%;
+    }
+
+    .db_timetable:hover {
+        box-shadow: 0px 0px 70px #5f58e1;
+        transform: scale(1);
+    }
+}
