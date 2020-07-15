@@ -76,3 +76,17 @@
     box-shadow: 0px 0px 50px #5f58e1;
     transform: scale(1.1);
 }
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .db_timetable {
+        margin: 20px 10px;
+        width: 95%;
+    }
+
+    .db_timetable:hover {
+        box-shadow: 0px 0px 70px #5f58e1;
+        transform: scale(1);
+    }
+}
