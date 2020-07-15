@@ -1,0 +1,168 @@
+/* styles for container */
+
+.st_container {
+    font-family: 'Song Myung', serif;
+    overflow: hidden;
+}
+
+.st_subcontainer_1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.st_subcontainer_1 h2 {
+    color: #ffffff;
+    font-size: 55px;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 30px 100px;
+}
+
+.st_subcontainer_1 h4 {
+    color: #ffffff;
+    font-size: 25px;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 40px 100px;
+}
+
+.st_subcontainer_2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.st_form {
+    height: 263px;
+    width: 800px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    margin: 50px 0px 50px 100px;
+}
+
+.st_settings_text h2 {
+    margin: 20px 50px;
+    font-size: 26px;
+}
+
+.st_input_fields {
+    margin: 20px 50px;
+}
+
+.st_align_email,
+.st_align_password {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 19px;
+    margin: 25px 0px;
+}
+
+.st_align_email label,
+.st_align_password label {
+    flex: 1;
+}
+
+.st_align_email input,
+.st_align_password input {
+    flex: 2;
+    margin-right: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #eaeaeb;
+    text-indent: 10px;
+    height: 30px;
+}
+
+.st_align_email input:focus,
+.st_align_password input:focus {
+    outline: none;
+}
+
+.st_btn button {
+    margin-left: 50px;
+    background-color: #5f58e1;
+    padding: 10px 60px;
+    font-family: 'Song Myung', serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.5s;
+}
+
+.st_btn button:focus {
+    outline: none;
+}
+
+.st_btn button:hover {
+    cursor: pointer;
+    background-color: #2a2d32;
+    box-shadow: 0px 0px 25px #5f58e1;
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .st_subcontainer_1 {
+        justify-content: space-between;
+    }
+    .st_subcontainer_1 h2 {
+        font-size: 30px;
+        margin: 20px 0px 20px 30px;
+    }
+
+    .st_subcontainer_1 h4 {
+        color: #ffffff;
+        font-size: 30px;
+        margin: 20px 30px 20px 0px;
+    }
+
+    .st_subcontainer_2 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .st_form {
+        width: 80%;
+        height: 325px;
+        margin: 80px 35px;
+    }
+
+    .st_align_email,
+    .st_align_password {
+        flex-direction: column;
+        height: 50px;
+    }
+
+    .st_align_email label,
+    .st_align_password label {
+        flex: 1;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .st_align_email input,
+    .st_align_password input {
+        margin-right: 0px;
+        height: 10px;
+    }
+
+    .st_settings_text h2 {
+        margin: 20px 20px;
+        font-size: 26px;
+    }
+
+    .st_input_fields {
+        margin: 20px 20px;
+        height: 210px;
+    }
+
+    .st_btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    .st_btn button {
+        margin-left: 0px;
+    }
+}
