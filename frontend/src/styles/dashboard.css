@@ -8,13 +8,13 @@
 .db_subcontainer_tables {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .db_timetable {
-    flex: 1;
     background-color: #ffffff;
-    margin: 20px 400px;
+    margin: 20px 0px;
+    width: 600px;
     border: none;
     border-radius: 10px;
     display: flex;
@@ -28,7 +28,7 @@
 }
 
 .db_timetable:nth-child(1) {
-    margin: 80px 400px 20px 400px;
+    margin: 80px 0px 20px 0px;
 }
 
 .db_timetable_btn {
