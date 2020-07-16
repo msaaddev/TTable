@@ -61,12 +61,26 @@
 /* responsive styles */
 
 @media screen and (max-width: 600px) {
-    .sh_subcontainer_rooms {
-        width: 90%;
-        height: 350px;
+    .sh_subcontainer_timetable {
+        width: 95%;
+        height: 550px;
+        margin-bottom: 40px;
     }
 
     .sh_enclosing_container {
         flex-direction: column;
+    }
+
+    .sh_class {
+        margin: 20px 0px 0px 0px;
+    }
+
+    .sh_class h2 {
+        text-align: center;
+        font-size: 24px;
+    }
+    .sh_btn button {
+        margin: 30px 10px 30px 15px;
+        padding: 10px 35px;
     }
 }

@@ -11,7 +11,7 @@
     display: table;
     table-layout: fixed;
     border-collapse: collapse;
-    margin: 0px 40px;
+    margin: 0px 0px;
 }
 
 .dtt_container li {
@@ -19,12 +19,20 @@
     text-align: center;
     border: 2px solid;
     border-bottom: none;
-    border-radius: 40px;
     vertical-align: middle;
     word-wrap: break-word;
     padding: 20px 30px;
+    font-size: 16px;
 }
 
 .dtt_container ul:last-child {
     border-bottom: 2px solid;
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .dtt_container li {
+        padding: 5px 5px;
+    }
 }
