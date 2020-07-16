@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
 import data from '../data/data.json';
+import '../styles/login.css';
 import '../styles/room.css';
 
 const Room = () => {
@@ -43,7 +44,10 @@ const Room = () => {
                                 heading_1='Room'
                                 heading_2='Section'
                                 heading_3='Session'
-                                roomInfo={roomInfo}
+                                heading_4=''
+                                heading_5=''
+                                heading_6=''
+                                info={roomInfo}
                             />
                         </div>
                     </div>
