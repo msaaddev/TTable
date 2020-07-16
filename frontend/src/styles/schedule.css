@@ -1,0 +1,42 @@
+/* styles for schedule */
+
+.sh_container {
+    font-family: 'Song Myung', serif;
+    overflow: hidden;
+}
+
+.sh_subcontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.sh_subcontainer_timetable {
+    width: 80%;
+    height: 70vh;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.sh_enclosing_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sh_class {
+	margin: 20px 0px 0px 40px;
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .sh_subcontainer_rooms {
+        width: 90%;
+        height: 350px;
+    }
+
+    .sh_enclosing_container {
+        flex-direction: column;
+    }
+}
