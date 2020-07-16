@@ -92,6 +92,63 @@
     background-color: #38393d;
 }
 
+#rm_next_info {
+    transition: all 0.2s;
+}
+
 #rm_next_info:hover {
     padding-right: 70px;
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .rm_subcontainer_rooms {
+        width: 90%;
+        height: 350px;
+    }
+
+    .rm_enclosing_container {
+        flex-direction: column;
+    }
+
+    .rm_input_room_info {
+        margin: 0;
+    }
+
+    .rm_input_room_info h2 {
+        margin: 40px 20px 0px 30px;
+    }
+
+    .rm_input_fields {
+        margin: 0px 10px 0px 30px;
+    }
+
+    .rm_align_room,
+    .rm_align_section,
+    .rm_align_session {
+        flex-direction: column;
+        height: 53px;
+        margin: 15px 0px;
+    }
+
+    .rm_align_room input,
+    .rm_align_section input,
+    .rm_align_session input {
+        margin-right: 20px;
+    }
+
+    .rm_btns button {
+        margin: 10px 0px 0px 30px;
+        padding: 10px 31px;
+    }
+
+    .rm_btns button:nth-child(2) {
+        margin: 10px 0px 0px 10px;
+        padding: 10px 33px;
+    }
+
+    .r_display_data {
+        display: none;
+    }
 }
