@@ -26,6 +26,10 @@ const Schedule = () => {
                         <div className='sh_schedule'>
                             <DisplayTimeTable info={schedule[0]} />
                         </div>
+                        <div className='sh_btn'>
+                            <button id='sh_previous_schedule'>← back</button>
+                            <button id='sh_next_schedule'>Next →</button>
+                        </div>
                     </div>
                 </div>
             </div>

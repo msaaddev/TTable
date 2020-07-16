@@ -12,7 +12,7 @@
 
 .sh_subcontainer_timetable {
     width: 80%;
-    height: 70vh;
+    height: 72vh;
     background-color: #ffffff;
     border: none;
     border-radius: 10px;
@@ -25,7 +25,37 @@
 }
 
 .sh_class {
-	margin: 20px 0px 0px 40px;
+    margin: 20px 0px 0px 95px;
+}
+
+.sh_class h2 {
+    font-size: 25px;
+}
+
+.sh_btn button {
+    margin: 30px 10px 30px 95px;
+    padding: 10px 60px;
+    background-color: #5f58e1;
+    font-family: 'Song Myung', serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.sh_btn button:last-child {
+    margin: 30px 0px;
+}
+
+.sh_btn button:focus {
+    outline: none;
+}
+
+.sh_btn button:hover {
+    cursor: pointer;
+    background-color: #38393d;
 }
 
 /* responsive styles */
