@@ -5,11 +5,12 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Settings from './components/Settings';
 import Room from './components/Room';
+import CourseInfo from './components/CourseInfo';
 
 function App() {
     return (
         <>
-            <Room />
+            <CourseInfo />
         </>
     );
 }
