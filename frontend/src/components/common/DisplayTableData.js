@@ -11,7 +11,6 @@ const DisplayTableData = ({
     heading_5,
     heading_6,
 }) => {
-    console.log(info[0].prof_name);
     return (
         <table className='dtd_container'>
             <thead>
