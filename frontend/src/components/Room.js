@@ -40,14 +40,12 @@ const Room = () => {
                             </div>
                         </div>
                         <div className='r_display_data'>
-                            <div className='rm_display_data_enclose'>
-                                <DisplayTableData
-                                    heading_1='Room'
-                                    heading_2='Section'
-                                    heading_3='Session'
-                                    roomInfo={roomInfo}
-                                />
-                            </div>
+                            <DisplayTableData
+                                heading_1='Room'
+                                heading_2='Section'
+                                heading_3='Session'
+                                roomInfo={roomInfo}
+                            />
                         </div>
                     </div>
                 </div>
