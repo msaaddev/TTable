@@ -1,9 +1,10 @@
 import React from 'react';
 import DataCell from './DataCell';
+import '../styles/displaytabledata.css';
 
 const DisplayTableData = ({ roomInfo, heading_1, heading_2, heading_3 }) => {
     return (
-        <table>
+        <table className='dtd_container'>
             <thead>
                 <tr>
                     <th>{heading_1}</th>
