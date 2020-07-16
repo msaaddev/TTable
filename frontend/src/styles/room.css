@@ -1,0 +1,154 @@
+/* styles for container */
+
+.rm_container {
+    font-family: 'Song Myung', serif;
+    overflow: hidden;
+}
+
+.rm_subcontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.rm_subcontainer_rooms {
+    width: 70%;
+    height: 60vh;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.rm_enclosing_container {
+    display: flex;
+}
+
+.rm_input_room_info {
+    flex: 1.7;
+    margin: 90px 0px 0px 70px;
+}
+
+.rm_input_fields {
+    margin: 30px 0px 0px 0px;
+}
+
+.r_display_data {
+    flex: 1.3;
+    margin-top: 60px;
+}
+
+.rm_align_room,
+.rm_align_section,
+.rm_align_session {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 19px;
+    margin: 25px 0px;
+}
+
+.rm_align_room label,
+.rm_align_section label,
+.rm_align_session label {
+    flex: 1;
+}
+
+.rm_align_room input,
+.rm_align_section input,
+.rm_align_session input {
+    flex: 2;
+    border: none;
+    border-radius: 10px;
+    background-color: #eaeaeb;
+    text-indent: 10px;
+    height: 30px;
+    margin-right: 80px;
+}
+
+.rm_align_room input:focus,
+.rm_align_section input:focus,
+.rm_align_session input:focus {
+    outline: none;
+}
+
+.rm_btns button {
+    margin: 10px 20px;
+    padding: 10px 60px;
+    background-color: #5f58e1;
+    font-family: 'Song Myung', serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+
+.rm_btns button:focus {
+    outline: none;
+}
+
+.rm_btns button:hover {
+    cursor: pointer;
+    background-color: #38393d;
+}
+
+#rm_next_info {
+    transition: all 0.2s;
+}
+
+#rm_next_info:hover {
+    padding-right: 70px;
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+    .rm_subcontainer_rooms {
+        width: 90%;
+        height: 350px;
+    }
+
+    .rm_enclosing_container {
+        flex-direction: column;
+    }
+
+    .rm_input_room_info {
+        margin: 0;
+    }
+
+    .rm_input_room_info h2 {
+        margin: 40px 20px 0px 30px;
+    }
+
+    .rm_input_fields {
+        margin: 0px 10px 0px 30px;
+    }
+
+    .rm_align_room,
+    .rm_align_section,
+    .rm_align_session {
+        flex-direction: column;
+        height: 53px;
+        margin: 15px 0px;
+    }
+
+    .rm_align_room input,
+    .rm_align_section input,
+    .rm_align_session input {
+        margin-right: 20px;
+    }
+
+    .rm_btns button {
+        margin: 10px 0px 0px 30px;
+        padding: 10px 31px;
+    }
+
+    .rm_btns button:nth-child(2) {
+        margin: 10px 0px 0px 10px;
+        padding: 10px 33px;
+    }
+
+    .r_display_data {
+        display: none;
+    }
+}
