@@ -6,11 +6,12 @@ import Dashboard from './components/Dashboard';
 import Settings from './components/Settings';
 import Room from './components/Room';
 import CourseInfo from './components/CourseInfo';
+import Schedule from './components/Schedule';
 
 function App() {
     return (
         <>
-            <CourseInfo />
+            <Schedule />
         </>
     );
 }
