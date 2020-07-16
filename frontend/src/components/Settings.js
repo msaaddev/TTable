@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './Nav';
+import Nav from '../components/common/Nav';
 import data from '../data/data.json';
 import '../styles/login.css';
 import '../styles/settings.css';

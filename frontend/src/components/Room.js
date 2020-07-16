@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Nav from './Nav';
+import Nav from '../components/common/Nav';
+import DisplayTableData from '../components/common/DisplayTableData';
 import data from '../data/data.json';
 import '../styles/login.css';
 import '../styles/room.css';
-import DisplayTableData from './DisplayTableData';
 
 const Room = () => {
     const [roomInfo, setRoomInfo] = useState([

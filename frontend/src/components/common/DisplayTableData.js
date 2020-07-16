@@ -1,6 +1,6 @@
 import React from 'react';
-import DataCell from './DataCell';
-import '../styles/displaytabledata.css';
+import DataCell from '../common/DataCell';
+import '../../styles/displaytabledata.css';
 
 const DisplayTableData = ({ roomInfo, heading_1, heading_2, heading_3 }) => {
     return (

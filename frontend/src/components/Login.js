@@ -2,7 +2,7 @@ import React from 'react';
 import data from '../data/data.json';
 import '../styles/login.css';
 import login from '../images/login.png';
-import Nav from './Nav';
+import Nav from '../components/common/Nav';
 
 const Login = () => {
     return (
