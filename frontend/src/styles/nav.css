@@ -1,0 +1,36 @@
+/* styles for navigation bar */
+
+.nav_subcontainer_1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_subcontainer_1 h2 {
+    color: #ffffff;
+    font-size: 55px;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 30px 100px;
+}
+
+.nav_subcontainer_1 h4 {
+    color: #ffffff;
+    font-size: 25px;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 40px 100px;
+}
+
+@media screen and (max-width: 600px) {
+    .nav_subcontainer_1 {
+        justify-content: space-between;
+    }
+    .nav_subcontainer_1 h2 {
+        font-size: 30px;
+        margin: 20px 0px 20px 30px;
+    }
+
+    .nav_subcontainer_1 h4 {
+        color: #ffffff;
+        font-size: 30px;
+        margin: 20px 30px 20px 0px;
+    }
+}
