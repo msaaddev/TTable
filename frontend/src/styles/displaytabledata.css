@@ -16,7 +16,8 @@
 td {
     border: solid 1px;
     border-radius: 0px;
-    padding: 10px 35px;
+    padding: 10px 30px;
+    margin: 0;
 }
 
 .dtd_container thead {
