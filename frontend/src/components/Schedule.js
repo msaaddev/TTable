@@ -4,7 +4,7 @@ import DisplayTimeTable from './common/DisplayTimeTable';
 import data from '../data/data.json';
 import '../styles/schedule.css';
 
-const Schedule = () => {
+const Schedule = ({ openPopupboxForSettings }) => {
     const [schedule, setSchedule] = useState([
         {
             monday: [0, 151, 101, 0, 131],
@@ -16,7 +16,11 @@ const Schedule = () => {
     ]);
     return (
         <div className='sh_container'>
-            <Nav appName={data.app_name} userName='John Doe' />
+            <Nav
+                appName={data.app_name}
+                userName='John Doe'
+                openPopupboxForSettings={openPopupboxForSettings}
+            />
             <div className='sh_subcontainer'>
                 <div className='sh_subcontainer_timetable'>
                     <div className='sh_enclosing_container'>

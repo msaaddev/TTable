@@ -4,10 +4,14 @@ import data from '../data/data.json';
 import '../styles/login.css';
 import login from '../images/login.png';
 
-const Login = () => {
+const Login = ({ openPopupboxForSettings }) => {
     return (
         <div className='lgn_container'>
-            <Nav userName='' appName={data.app_name} />
+            <Nav
+                userName=''
+                appName={data.app_name}
+                openPopupboxForSettings={openPopupboxForSettings}
+            />
             <div className='lgn_subcontainer_2'>
                 <div className='lgn_login_form'>
                     <div className='lgn_input_fields'>

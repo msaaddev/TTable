@@ -4,7 +4,7 @@ import DisplayTableData from '../components/common/DisplayTableData';
 import data from '../data/data.json';
 import '../styles/courseinfo.css';
 
-const CourseInfo = () => {
+const CourseInfo = ({ openPopupboxForSettings }) => {
     const [courseInfo, setCourseInfo] = useState([
         {
             prof_name: 'Robert Abella',
@@ -25,7 +25,11 @@ const CourseInfo = () => {
     ]);
     return (
         <div className='ci_container'>
-            <Nav appName={data.app_name} userName='John Doe' />
+            <Nav
+                appName={data.app_name}
+                userName='John Doe'
+                openPopupboxForSettings={openPopupboxForSettings}
+            />
             <div className='ci_subcontainer'>
                 <div className='ci_subcontainer_rooms'>
                     <div className='ci_enclosing_container'>
@@ -61,7 +65,7 @@ const CourseInfo = () => {
                             </div>
                             <div className='ci_btns'>
                                 <button id='ci_add_room_info'>Add</button>
-                                <button id='ci_next_info'>Next →</button>
+                                <button id='ci_next_info'>Generate →</button>
                             </div>
                         </div>
                         <div className='ci_display_data'>
