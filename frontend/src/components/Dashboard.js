@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../components/common/Nav';
 import data from '../data/data.json';
 import '../styles/dashboard.css';
@@ -26,7 +27,9 @@ const Dashboard = ({ openPopupboxForSettings }) => {
                         <button id='db_section_c'>View</button>
                     </div>
                     <div className='db_timetable_btn'>
-                        <button id='db_create_table'>Create Timetable!</button>
+                        <Link to='/room'>
+                            <button id='db_create_table'>Create Timetable!</button>
+                        </Link>
                     </div>
                 </div>
             </div>
