@@ -9,7 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+      animation: App-logo-spin infinite 20s linear;
   }
 }
 
@@ -30,9 +30,46 @@
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+      transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+
+/* popup styles */
+
+.popupbox-wrapper {
+  background-color: #5f58e1;
+  color: #ffffff;
+  font-family: 'Song Myung', serif;
+  border-radius: 10px;
+  font-size: 18px;
+  height: 220px;
+}
+
+#styling {
+  list-style-type: none;
+  padding: 0px !important;
+}
+
+#styling li {
+  padding: 10px 0px 10px 20px;
+  margin: 5px 0px;
+  border: solid 1px;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+#styling li:hover {
+  background-color: #c94d3f;
+  cursor: pointer;
+}
+
+/* responsive styles */
+
+@media screen and (max-width: 600px) {
+  .popupbox-wrapper {
+      width: 200px;
   }
 }
