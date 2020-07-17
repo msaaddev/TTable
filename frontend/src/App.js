@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
@@ -15,9 +16,15 @@ const openPopupboxForSettings = () => {
     const content = (
         <div className='popup'>
             <ul id='styling'>
-                <li>Settings</li>
-                <li>Generated TimeTable</li>
-                <li>Logout</li>
+                <Link to='/settings'>
+                    <li>Settings</li>
+                </Link>
+                <Link to='/dashboard'>
+                    <li>Generated TimeTable</li>
+                </Link>
+                <Link to='/'>
+                    <li>Logout</li>
+                </Link>
             </ul>
         </div>
     );
@@ -34,7 +41,40 @@ const popupboxConfig = {
 function App() {
     return (
         <>
-            <CourseInfo openPopupboxForSettings={openPopupboxForSettings} />
+            <Switch>
+                <Route
+                    exact
+                    path='/login'
+                    render={() => <Login openPopupboxForSettings={openPopupboxForSettings} />}
+                />
+                <Route
+                    exact
+                    path='/dashboard'
+                    render={() => <Dashboard openPopupboxForSettings={openPopupboxForSettings} />}
+                />
+                <Route
+                    exact
+                    path='/settings'
+                    render={() => <Settings openPopupboxForSettings={openPopupboxForSettings} />}
+                />
+                <Route
+                    exact
+                    path='/room'
+                    render={() => <Room openPopupboxForSettings={openPopupboxForSettings} />}
+                />
+                <Route
+                    exact
+                    path='/courseinfo'
+                    render={() => <CourseInfo openPopupboxForSettings={openPopupboxForSettings} />}
+                />
+                <Route
+                    exact
+                    path='/schedule'
+                    render={() => <Schedule openPopupboxForSettings={openPopupboxForSettings} />}
+                />
+                <Route exact path='/' render={() => <Homepage />} />
+            </Switch>
+            {/* <CourseInfo openPopupboxForSettings={openPopupboxForSettings} /> */}
             <PopupboxContainer {...popupboxConfig} />
         </>
     );

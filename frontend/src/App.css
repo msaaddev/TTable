@@ -61,6 +61,11 @@
   transition: all 0.5s;
 }
 
+#styling a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
 #styling li:hover {
   background-color: #c94d3f;
   cursor: pointer;

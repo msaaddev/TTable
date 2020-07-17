@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
 import data from '../data/data.json';
@@ -40,7 +41,9 @@ const Room = ({ openPopupboxForSettings }) => {
                             </div>
                             <div className='rm_btns'>
                                 <button id='rm_add_room_info'>Add</button>
-                                <button id='rm_next_info'>Next →</button>
+                                <Link to='/courseinfo'>
+                                    <button id='rm_next_info'>Next →</button>
+                                </Link>
                             </div>
                         </div>
                         <div className='r_display_data'>

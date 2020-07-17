@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
 import data from '../data/data.json';
@@ -17,7 +18,7 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
         {
             prof_name: 'Robert Abella',
             course_name: 'AOA',
-            course_ID: 101,
+            course_ID: 102,
             section: 'A',
             session: 18,
             credit_hrs: 3,
@@ -65,7 +66,9 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
                             </div>
                             <div className='ci_btns'>
                                 <button id='ci_add_room_info'>Add</button>
-                                <button id='ci_next_info'>Generate →</button>
+                                <Link to='/schedule'>
+                                    <button id='ci_next_info'>Generate →</button>
+                                </Link>
                             </div>
                         </div>
                         <div className='ci_display_data'>

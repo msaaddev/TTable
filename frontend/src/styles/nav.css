@@ -10,6 +10,21 @@
     font-size: 55px;
     font-family: 'Shadows Into Light', cursive;
     margin: 30px 100px;
+    text-decoration: none;
+}
+
+.nav_subcontainer_1 h2:hover {
+    cursor: pointer;
+}
+
+.nav_subcontainer_1 a {
+    text-decoration: none;
+}
+
+.nav_subcontainer_1 h2:visited {
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .nav_subcontainer_1 h4 {
