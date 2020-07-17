@@ -5,14 +5,18 @@ import data from '../data/data.json';
 import '../styles/login.css';
 import '../styles/room.css';
 
-const Room = () => {
+const Room = ({ openPopupboxForSettings }) => {
     const [roomInfo, setRoomInfo] = useState([
         { room: 1, section: 'A', session: 18 },
         { room: 2, section: 'B', session: 18 },
     ]);
     return (
         <div className='rm_container'>
-            <Nav appName={data.app_name} userName='John Doe' />
+            <Nav
+                appName={data.app_name}
+                userName='John Doe'
+                openPopupboxForSettings={openPopupboxForSettings}
+            />
             <div className='rm_subcontainer'>
                 <div className='rm_subcontainer_rooms'>
                     <div className='rm_enclosing_container'>

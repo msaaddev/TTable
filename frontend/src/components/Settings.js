@@ -3,10 +3,14 @@ import Nav from '../components/common/Nav';
 import data from '../data/data.json';
 import '../styles/settings.css';
 
-const Settings = () => {
+const Settings = ({ openPopupboxForSettings }) => {
     return (
         <div className='st_containers'>
-            <Nav appName={data.app_name} userName='John Doe' />
+            <Nav
+                appName={data.app_name}
+                userName='John Doe'
+                openPopupboxForSettings={openPopupboxForSettings}
+            />
             <div className='st_subcontainer_2'>
                 <div className='st_form'>
                     <div className='st_settings_text'>

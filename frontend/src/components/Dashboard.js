@@ -3,10 +3,14 @@ import Nav from '../components/common/Nav';
 import data from '../data/data.json';
 import '../styles/dashboard.css';
 
-const Dashboard = () => {
+const Dashboard = ({ openPopupboxForSettings }) => {
     return (
         <div className='db_container'>
-            <Nav userName='John Doe' appName={data.app_name} />
+            <Nav
+                userName='John Doe'
+                appName={data.app_name}
+                openPopupboxForSettings={openPopupboxForSettings}
+            />
             <div className='db_subcontainer'>
                 <div className='db_subcontainer_tables'>
                     <div className='db_timetable'>

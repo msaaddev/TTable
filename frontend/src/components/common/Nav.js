@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../styles/nav.css';
 
-const Nav = ({ appName, userName }) => {
+const Nav = ({ appName, userName, openPopupboxForSettings }) => {
     return (
         <div className='nav_subcontainer_1'>
             <h2>🗓 {appName}</h2>
-            <h4>{userName}</h4>
+            <h4 onClick={openPopupboxForSettings}>{userName}</h4>
         </div>
     );
 };
