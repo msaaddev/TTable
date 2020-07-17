@@ -75,8 +75,13 @@
     transition: all 0.5s;
 }
 
-.ci_btns button:nth-child(2) {
-    margin: 10px 0px 0px 10px;
+.ci_btns a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#ci_next_info {
+    margin: 10px 0px 0px 20px;
 }
 
 .ci_btns button:focus {

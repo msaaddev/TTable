@@ -83,6 +83,11 @@
     transition: all 0.5s;
 }
 
+.rm_btns a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
 .rm_btns button:focus {
     outline: none;
 }
