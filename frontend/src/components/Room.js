@@ -7,10 +7,10 @@ import '../styles/login.css';
 import '../styles/room.css';
 
 const Room = ({ openPopupboxForSettings }) => {
-    const [roomInfo, setRoomInfo] = useState([
-        { room: 1, section: 'A', session: 18 },
-        { room: 2, section: 'B', session: 18 },
-    ]);
+    const [roomInfo, setRoomInfo] = useState([{}]);
+    const [room, setRoom] = useState(0);
+    const [section, setSection] = useState('');
+    const [session, setSession] = useState(0);
     return (
         <div className='rm_container'>
             <Nav
