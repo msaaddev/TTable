@@ -6,24 +6,14 @@ import data from '../data/data.json';
 import '../styles/courseinfo.css';
 
 const CourseInfo = ({ openPopupboxForSettings }) => {
-    const [courseInfo, setCourseInfo] = useState([
-        {
-            prof_name: 'Robert Abella',
-            course_name: 'AOA',
-            course_ID: 101,
-            section: 'A',
-            session: 18,
-            credit_hrs: 3,
-        },
-        {
-            prof_name: 'Robert Abella',
-            course_name: 'AOA',
-            course_ID: 102,
-            section: 'A',
-            session: 18,
-            credit_hrs: 3,
-        },
-    ]);
+    const [courseInfo, setCourseInfo] = useState([{}]);
+    const [teacher, setTeacher] = useState('');
+    const [courseName, setCourseName] = useState('');
+    const [courseID, setCourseID] = useState(0);
+    const [section, setSection] = useState('');
+    const [session, setSession] = useState(0);
+    const [creditHrs, setCreditHrs] = useState(0);
+
     return (
         <div className='ci_container'>
             <Nav
