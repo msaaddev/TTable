@@ -35,6 +35,8 @@
 .ci_display_data {
     flex: 1.7;
     margin: 60px 2% 0px 0px;
+    height: 400px;
+    overflow: scroll;
 }
 
 .ci_align {

@@ -6,6 +6,7 @@
     background-color: #2a2d32;
     text-align: center;
     transition: all 0.5s;
+    overflow: scroll;
 }
 
 .dtd_container:hover {
@@ -20,6 +21,13 @@ td {
     margin: 0;
 }
 
+.dtd_container thead th {
+    background-color: #2a2d32;
+}
+
+.dtd_container tr:nth-child(odd) {
+    background-color: #5f58e1;
+}
 .dtd_container thead {
     margin: 10px;
 }
