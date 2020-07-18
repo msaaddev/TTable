@@ -31,7 +31,7 @@ const DisplayTableData = ({
                 {info[0].prof_name === undefined &&
                     info.map((map) => (
                         <DataCell
-                            key={map.room}
+                            key={(() => Math.floor(Math.random() * 1000))()}
                             info_1={map.room}
                             info_2={map.section}
                             info_3={map.session}
