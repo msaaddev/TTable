@@ -14,7 +14,7 @@ const DisplayTableData = ({
     return (
         <table className='dtd_container'>
             <thead>
-                <tr>
+                <tr className='dtd_table_head'>
                     <th>{heading_1}</th>
                     <th>{heading_2}</th>
                     <th>{heading_3}</th>
@@ -28,7 +28,7 @@ const DisplayTableData = ({
                 </tr>
             </thead>
             <tbody>
-                {info[0].prof_name === undefined &&
+                {info[0].room !== undefined &&
                     info.map((map) => (
                         <DataCell
                             key={(() => Math.floor(Math.random() * 1000))()}
@@ -40,16 +40,16 @@ const DisplayTableData = ({
                             info_6=''
                         />
                     ))}
-                {info[0].prof_name !== undefined &&
+                {info[0].teacher !== undefined &&
                     info.map((map) => (
                         <DataCell
-                            key={map.course_ID}
-                            info_1={map.prof_name}
-                            info_2={map.course_name}
-                            info_3={map.course_ID}
+                            key={map.courseId}
+                            info_1={map.teacher}
+                            info_2={map.courseName}
+                            info_3={map.courseID}
                             info_4={map.section}
                             info_5={map.session}
-                            info_6={map.credit_hrs}
+                            info_6={map.creditHrs}
                         />
                     ))}
             </tbody>
