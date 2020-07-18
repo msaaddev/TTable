@@ -11,6 +11,15 @@ const Room = ({ openPopupboxForSettings }) => {
     const [room, setRoom] = useState(0);
     const [section, setSection] = useState('');
     const [session, setSession] = useState(0);
+
+    /**
+     *
+     * @param {obj} - That is being checked for being empty
+     * @returns {boolean}
+     */
+    const isEmpty = (obj) => {
+        return !Object.keys(obj).length > 0;
+    };
     return (
         <div className='rm_container'>
             <Nav
