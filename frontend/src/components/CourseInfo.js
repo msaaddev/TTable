@@ -132,7 +132,9 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
                                 </div>
                             </div>
                             <div className='ci_btns'>
-                                <button id='ci_add_room_info'>Add</button>
+                                <button id='ci_add_room_info' onClick={updateCourseInfo}>
+                                    Add
+                                </button>
                                 <Link to='/schedule'>
                                     <button id='ci_next_info'>Generate →</button>
                                 </Link>
