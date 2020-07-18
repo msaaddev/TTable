@@ -44,6 +44,24 @@ const Room = ({ openPopupboxForSettings }) => {
     const changeSession = (value) => {
         setSession(value);
     };
+
+    /**
+     *
+     * creates a temp array, stores data in it and then set the state to temp array
+     */
+    const roomData = () => {
+        const obj = {
+            room,
+            section,
+            session,
+        };
+        const tempArr = [...roomInfo];
+        if (isEmpty(roomInfo[0])) {
+            tempArr[0] = obj;
+        } else tempArr.push(obj);
+        setRoomInfo(tempArr);
+    };
+
     return (
         <div className='rm_container'>
             <Nav
