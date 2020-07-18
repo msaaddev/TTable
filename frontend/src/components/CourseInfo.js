@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
 import data from '../data/data.json';
+import isEmpty from '../utils/isEmpty';
 import '../styles/courseinfo.css';
 
 const CourseInfo = ({ openPopupboxForSettings }) => {
