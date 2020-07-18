@@ -78,15 +78,30 @@ const Room = ({ openPopupboxForSettings }) => {
                                 <div className='rm_input_fields'>
                                     <div className='rm_align_room'>
                                         <label htmlFor='Room'>Room</label>
-                                        <input type='number' id='rm_room_number' />
+                                        <input
+                                            type='number'
+                                            name='Room'
+                                            onChange={(e) => changeRoom(e.target.value)}
+                                            id='rm_room_number'
+                                        />
                                     </div>
                                     <div className='rm_align_section'>
                                         <label htmlFor='Section'>Section</label>
-                                        <input type='text' id='rm_section' />
+                                        <input
+                                            type='text'
+                                            name='section'
+                                            onChange={(e) => changeSection(e.target.value)}
+                                            id='rm_section'
+                                        />
                                     </div>
                                     <div className='rm_align_session'>
                                         <label htmlFor='session'>Session</label>
-                                        <input type='number' id='rm_session' />
+                                        <input
+                                            type='number'
+                                            name='session'
+                                            onChange={(e) => changeSession(e.target.value)}
+                                            id='rm_session'
+                                        />
                                     </div>
                                 </div>
                             </div>
