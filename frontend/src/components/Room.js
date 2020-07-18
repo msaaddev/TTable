@@ -106,7 +106,9 @@ const Room = ({ openPopupboxForSettings }) => {
                                 </div>
                             </div>
                             <div className='rm_btns'>
-                                <button id='rm_add_room_info'>Add</button>
+                                <button id='rm_add_room_info' onClick={roomData}>
+                                    Add
+                                </button>
                                 <Link to='/courseinfo'>
                                     <button id='rm_next_info'>Next →</button>
                                 </Link>
