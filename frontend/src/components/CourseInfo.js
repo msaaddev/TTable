@@ -14,6 +14,53 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
     const [session, setSession] = useState(0);
     const [creditHrs, setCreditHrs] = useState(0);
 
+    /**
+     *
+     * @param {value} - teacher name
+     */
+    const handleName = (value) => {
+        setTeacher(value);
+    };
+
+    /**
+     *
+     * @param {value} - course name
+     */
+    const handleCourseName = (value) => {
+        setCourseName(value);
+    };
+
+    /**
+     *
+     * @param {value} - course id
+     */
+    const handleCourseID = (value) => {
+        setCourseID(value);
+    };
+
+    /**
+     *
+     * @param {value} - section
+     */
+    const handleSection = (value) => {
+        setSection(value);
+    };
+
+    /**
+     *
+     * @param {value} - session
+     */
+    const handleSession = (value) => {
+        setSession(value);
+    };
+
+    /**
+     *
+     * @param {value} - credit hours
+     */
+    const handleCreditHrs = (value) => {
+        setCreditHrs(value);
+    };
     return (
         <div className='ci_container'>
             <Nav
@@ -30,27 +77,57 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
                                 <div className='ci_input_fields'>
                                     <div className='ci_align'>
                                         <label htmlFor='Name'>Prof. Name</label>
-                                        <input type='text' id='ci_professor_name' />
+                                        <input
+                                            type='text'
+                                            name='name'
+                                            onChange={(e) => handleName(e.target.value)}
+                                            id='ci_professor_name'
+                                        />
                                     </div>
                                     <div className='ci_align'>
                                         <label htmlFor='Course_Name'>Course</label>
-                                        <input type='text' id='ci_course_name' />
+                                        <input
+                                            type='text'
+                                            name='course_name'
+                                            onChange={(e) => handleCourseName(e.target.value)}
+                                            id='ci_course_name'
+                                        />
                                     </div>
                                     <div className='ci_align'>
                                         <label htmlFor='Course_ID'>Course ID</label>
-                                        <input type='number' id='ci_course_id' />
+                                        <input
+                                            type='number'
+                                            name='course_ID'
+                                            onChange={(e) => handleCourseID(e.target.value)}
+                                            id='ci_course_id'
+                                        />
                                     </div>
                                     <div className='ci_align'>
                                         <label htmlFor='Section'>Section</label>
-                                        <input type='text' id='ci_section' />
+                                        <input
+                                            type='text'
+                                            name='section'
+                                            onChange={(e) => handleSection(e.target.value)}
+                                            id='ci_section'
+                                        />
                                     </div>
                                     <div className='ci_align'>
                                         <label htmlFor='session'>Session</label>
-                                        <input type='number' id='ci_session' />
+                                        <input
+                                            type='number'
+                                            name='session'
+                                            onChange={(e) => handleSession(e.target.value)}
+                                            id='ci_session'
+                                        />
                                     </div>
                                     <div className='ci_align'>
                                         <label htmlFor='hrs_credit_hrs'>Credits Hr</label>
-                                        <input type='number' id='ci_hrs_per_week' />
+                                        <input
+                                            type='number'
+                                            onChange={(e) => handleCreditHrs(e.target.value)}
+                                            name='credit_hours'
+                                            id='ci_hrs_per_week'
+                                        />
                                     </div>
                                 </div>
                             </div>
