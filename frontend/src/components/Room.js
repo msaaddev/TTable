@@ -20,6 +20,30 @@ const Room = ({ openPopupboxForSettings }) => {
     const isEmpty = (obj) => {
         return !Object.keys(obj).length > 0;
     };
+
+    /**
+     *
+     * @param {value} - room value
+     */
+    const changeRoom = (value) => {
+        setRoom(value);
+    };
+
+    /**
+     *
+     * @param {value} - section value
+     */
+    const changeSection = (value) => {
+        setSection(value);
+    };
+
+    /**
+     *
+     * @param {value} - session value
+     */
+    const changeSession = (value) => {
+        setSession(value);
+    };
     return (
         <div className='rm_container'>
             <Nav
