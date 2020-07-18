@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
 import data from '../data/data.json';
+import isEmpty from '../utils/isEmpty';
 import '../styles/login.css';
 import '../styles/room.css';
 
@@ -11,15 +12,6 @@ const Room = ({ openPopupboxForSettings }) => {
     const [room, setRoom] = useState(0);
     const [section, setSection] = useState('');
     const [session, setSession] = useState(0);
-
-    /**
-     *
-     * @param {obj} - That is being checked for being empty
-     * @returns {boolean}
-     */
-    const isEmpty = (obj) => {
-        return !Object.keys(obj).length > 0;
-    };
 
     /**
      *
