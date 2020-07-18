@@ -62,6 +62,27 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
     const handleCreditHrs = (value) => {
         setCreditHrs(value);
     };
+
+    /**
+     *
+     *  updates the course information in the table
+     */
+    const updateCourseInfo = () => {
+        const obj = {
+            teacher,
+            courseName,
+            courseID,
+            section,
+            session,
+            creditHrs,
+        };
+
+        const temp = [...courseInfo];
+        if (isEmpty(courseInfo[0])) temp[0] = obj;
+        else temp.push(obj);
+        setCourseInfo(temp);
+    };
+
     return (
         <div className='ci_container'>
             <Nav
