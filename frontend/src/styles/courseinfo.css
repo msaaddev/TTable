@@ -82,6 +82,7 @@
     text-decoration: none;
 }
 
+#ci_next_info_enabled,
 #ci_next_info {
     margin: 10px 0px 0px 20px;
 }
@@ -99,8 +100,17 @@
     transition: all 0.2s;
 }
 
-#ci_next_info:hover {
+#ci_next_info_enabled:hover {
     padding-right: 70px;
+}
+
+.ci_btns .disabled {
+    background-color: #38393d;
+}
+
+.ci_btns .disabled:hover {
+    background-color: #38393d;
+    cursor: not-allowed;
 }
 
 /* responsive styles */

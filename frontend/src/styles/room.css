@@ -101,8 +101,17 @@
     transition: all 0.2s;
 }
 
-#rm_next_info:hover {
+#rm_next_info_enabled:hover {
     padding-right: 70px;
+}
+
+.rm_btns .disabled {
+    background-color: #38393d;
+}
+
+.rm_btns .disabled:hover {
+    background-color: #38393d;
+    cursor: not-allowed;
 }
 
 /* responsive styles */
