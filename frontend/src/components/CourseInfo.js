@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
+import InputData from './common/InputData';
 import data from '../data/data.json';
 import 'react-toastify/dist/ReactToastify.css';
 import isEmpty from '../utils/isEmpty';
@@ -203,32 +204,16 @@ const CourseInfo = ({
                                             id='ci_course_id'
                                         />
                                     </div>
-                                    <div className='ci_align'>
-                                        <label htmlFor='Section'>Section</label>
-                                        <select
-                                            htmlFor='Section'
-                                            onChange={(e) => handleSection(e.target.value)}
-                                        >
-                                            {sectionArr.map((index) => (
-                                                <option key={index} value={index}>
-                                                    {index}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                    <div className='ci_align'>
-                                        <label htmlFor='session'>Session</label>
-                                        <select
-                                            htmlFor='Session'
-                                            onChange={(e) => handleSession(e.target.value)}
-                                        >
-                                            {sessionArr.map((index) => (
-                                                <option key={index} value={index}>
-                                                    {index}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
+                                    <InputData
+                                        context='Section'
+                                        dropdownInfo={sectionArr}
+                                        onChange={handleSection}
+                                    />
+                                    <InputData
+                                        context='Session'
+                                        dropdownInfo={sessionArr}
+                                        onChange={handleSession}
+                                    />
                                     <div className='ci_align'>
                                         <label htmlFor='hrs_credit_hrs'>Credits Hr</label>
                                         <select

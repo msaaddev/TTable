@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
+import InputData from './common/InputData';
 import isEmpty from '../utils/isEmpty';
 import data from '../data/data.json';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,7 +23,7 @@ const Room = ({
     const [session] = useState(18);
     const [roomNo] = useState([1, 2, 3, 4]);
     const [sections] = useState(['A', 'B', 'C', 'D']);
-    const [sessions] = useState(['18']);
+    const [sessions] = useState([18]);
 
     /**
      *
@@ -120,42 +121,21 @@ const Room = ({
                             <h2>Rooms Number</h2>
                             <div className='rm_room_input'>
                                 <div className='rm_input_fields'>
-                                    <div className='rm_align'>
-                                        <label htmlFor='Room'>Room</label>
-                                        <select
-                                            htmlFor='Room'
-                                            onChange={(e) => changeRoom(e.target.value)}
-                                        >
-                                            {roomNo.map((index) => (
-                                                <option key={index} value={index}>
-                                                    {index}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                    <div className='rm_align'>
-                                        <label htmlFor='Section'>Section</label>
-                                        <select
-                                            htmlFor='Section'
-                                            onChange={(e) => changeSection(e.target.value)}
-                                        >
-                                            {sections.map((index) => (
-                                                <option key={index} value={index}>
-                                                    {index}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                    <div className='rm_align'>
-                                        <label htmlFor='Session'>Session</label>
-                                        <select htmlFor='sessions'>
-                                            {sessions.map((index) => (
-                                                <option key={index} value={index}>
-                                                    {index}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
+                                    <InputData
+                                        context='Room'
+                                        onChange={changeRoom}
+                                        dropdownInfo={roomNo}
+                                    />
+                                    <InputData
+                                        context='Section'
+                                        onChange={changeSection}
+                                        dropdownInfo={sections}
+                                    />
+                                    <InputData
+                                        context='Session'
+                                        onChange=''
+                                        dropdownInfo={sessions}
+                                    />
                                 </div>
                             </div>
                             <div className='rm_btns'>
