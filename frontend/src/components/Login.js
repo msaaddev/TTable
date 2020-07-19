@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../components/common/Nav';
 import data from '../data/data.json';
 import '../styles/login.css';
@@ -24,10 +25,13 @@ const Login = ({ openPopupboxForSettings }) => {
                             <input type='password' id='lgn_signin_password' />
                         </div>
                     </div>
-                    <div className='lgn_btn'>
-                        <button>Login</button>
-                    </div>
+                    <Link to='/dashboard'>
+                        <div className='lgn_btn'>
+                            <button>Login</button>
+                        </div>
+                    </Link>
                 </div>
+
                 <div className='lgn_img'>
                     <img src={login} alt='login_image' />
                 </div>
