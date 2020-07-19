@@ -96,7 +96,7 @@ const CourseInfo = ({
         if (flagForID) setCourseIDArr(tempCourseID);
 
         for (let i = 0; i < courseName.length; i++) {
-            if (courseNameArr[i] == courseName) flagForName = false;
+            if (courseNameArr[i] === courseName) flagForName = false;
         }
 
         if (flagForName) setcourseNameArr(tempCourseName);
