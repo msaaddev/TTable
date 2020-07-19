@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import Login from './components/Login';
@@ -39,6 +39,12 @@ const popupboxConfig = {
 };
 
 function App() {
+    const [sectionArr, setSectionArr] = useState([]);
+    const [sessionArr, setSessionArr] = useState([]);
+    const [courseNameArr, setcourseNameArr] = useState([]);
+    const [courseIDArr, setCourseIDArr] = useState([]);
+    const [creditHrsArr, setCreditHrsArr] = useState([]);
+
     return (
         <>
             <Switch>
@@ -60,12 +66,32 @@ function App() {
                 <Route
                     exact
                     path='/room'
-                    render={() => <Room openPopupboxForSettings={openPopupboxForSettings} />}
+                    render={() => (
+                        <Room
+                            openPopupboxForSettings={openPopupboxForSettings}
+                            sectionArr={sectionArr}
+                            setSectionArr={setSectionArr}
+                            sessionArr={sessionArr}
+                            setSessionArr={setSessionArr}
+                        />
+                    )}
                 />
                 <Route
                     exact
                     path='/courseinfo'
-                    render={() => <CourseInfo openPopupboxForSettings={openPopupboxForSettings} />}
+                    render={() => (
+                        <CourseInfo
+                            openPopupboxForSettings={openPopupboxForSettings}
+                            sectionArr={sectionArr}
+                            sessionArr={sessionArr}
+                            courseNameArr={courseNameArr}
+                            setcourseNameArr={setcourseNameArr}
+                            courseIDArr={courseIDArr}
+                            setCourseIDArr={setCourseIDArr}
+                            creditHrsArr={creditHrsArr}
+                            setCreditHrsArr={setCreditHrsArr}
+                        />
+                    )}
                 />
                 <Route
                     exact
@@ -74,7 +100,6 @@ function App() {
                 />
                 <Route exact path='/' render={() => <Homepage />} />
             </Switch>
-            {/* <CourseInfo openPopupboxForSettings={openPopupboxForSettings} /> */}
             <PopupboxContainer {...popupboxConfig} />
         </>
     );
