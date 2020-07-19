@@ -1,0 +1,13 @@
+/* these are custom styles for react toastify package */
+
+.Toastify__toast {
+    background-color: #c94d3f;
+    box-shadow: 0px 0px 10px #ffffff;
+    font-family: 'Song Myung', serif;
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+.Toastify__toast-body {
+    padding-left: 10px;
+}
