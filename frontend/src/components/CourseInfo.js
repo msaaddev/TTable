@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
 import data from '../data/data.json';
+import 'react-toastify/dist/ReactToastify.css';
 import isEmpty from '../utils/isEmpty';
 import '../styles/courseinfo.css';
+import '../styles/reacttoastify.css';
 
 const CourseInfo = ({ openPopupboxForSettings }) => {
     const [courseInfo, setCourseInfo] = useState([{}]);
@@ -68,19 +71,56 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
      *  updates the course information in the table
      */
     const updateCourseInfo = () => {
-        const obj = {
-            teacher,
-            courseName,
-            courseID,
-            section,
-            session,
-            creditHrs,
-        };
+        let firstCheck = true;
+        let secondCheck = true;
 
-        const temp = [...courseInfo];
-        if (isEmpty(courseInfo[0])) temp[0] = obj;
-        else temp.push(obj);
-        setCourseInfo(temp);
+        /* checking the given information for any error */
+
+        for (let i = 0; i < courseInfo.length; i++) {
+            if (
+                courseInfo[i].courseID === courseID &&
+                courseInfo[i].teacher === teacher &&
+                courseInfo[i].section === section &&
+                courseInfo[i].session === session
+            )
+                firstCheck = false;
+            if (
+                (courseInfo[i].courseID === courseID && courseInfo[i].courseName !== courseName) ||
+                (courseInfo[i].courseID !== courseID && courseInfo[i].courseName === courseName)
+            )
+                secondCheck = false;
+        }
+
+        /* saving the information or presenting error */
+
+        if (firstCheck && secondCheck) {
+            const obj = {
+                teacher,
+                courseName,
+                courseID,
+                section,
+                session,
+                creditHrs,
+            };
+
+            const temp = [...courseInfo];
+            if (isEmpty(courseInfo[0])) temp[0] = obj;
+            else temp.push(obj);
+            setCourseInfo(temp);
+        } else {
+            if (!secondCheck)
+                toast('Can not use Course ID of one course for another course and viceversa');
+            else if (!firstCheck) toast('Can not use same information again!');
+        }
+    };
+
+    /**
+     *
+     * checks if button should be disabled or not
+     */
+    const isDisabled = () => {
+        if (isEmpty(courseInfo[0])) return 'disabled';
+        return false;
     };
 
     return (
@@ -157,9 +197,15 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
                                 <button id='ci_add_room_info' onClick={updateCourseInfo}>
                                     Add
                                 </button>
-                                <Link to='/schedule'>
-                                    <button id='ci_next_info'>Generate →</button>
-                                </Link>
+                                {(isDisabled() && (
+                                    <button id='ci_next_info' className='disabled'>
+                                        Generate →
+                                    </button>
+                                )) || (
+                                    <Link to='/schedule'>
+                                        <button id='ci_next_info_enabled'>Generate →</button>
+                                    </Link>
+                                )}
                             </div>
                         </div>
                         <div className='ci_display_data'>
@@ -176,6 +222,18 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position='top-right'
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                type='info'
+            />
         </div>
     );
 };

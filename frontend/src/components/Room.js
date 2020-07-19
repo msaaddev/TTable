@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
-import data from '../data/data.json';
 import isEmpty from '../utils/isEmpty';
-import '../styles/login.css';
+import data from '../data/data.json';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/room.css';
+import '../styles/reacttoastify.css';
 
 const Room = ({ openPopupboxForSettings }) => {
     const [roomInfo, setRoomInfo] = useState([{}]);
@@ -42,16 +44,47 @@ const Room = ({ openPopupboxForSettings }) => {
      * creates a temp array, stores data in it and then set the state to temp array
      */
     const roomData = () => {
-        const obj = {
-            room,
-            section,
-            session,
-        };
-        const tempArr = [...roomInfo];
-        if (isEmpty(roomInfo[0])) {
-            tempArr[0] = obj;
-        } else tempArr.push(obj);
-        setRoomInfo(tempArr);
+        let checkRoom = true;
+        let checkSection = true;
+
+        // checking the given information for any error
+
+        for (let i = 0; i < roomInfo.length; i++) {
+            if (roomInfo[i].room === room) {
+                checkRoom = false;
+                break;
+            }
+            if (roomInfo[i].section === section) {
+                checkSection = false;
+                break;
+            }
+        }
+
+        // saving the information or presenting it in case of an error
+
+        if (checkRoom && checkSection) {
+            const obj = {
+                room,
+                section,
+                session,
+            };
+            const tempArr = [...roomInfo];
+            if (isEmpty(roomInfo[0])) {
+                tempArr[0] = obj;
+            } else tempArr.push(obj);
+            setRoomInfo(tempArr);
+        } else {
+            toast('Can not use same room or section again!');
+        }
+    };
+
+    /**
+     *
+     * checks if button should be disabled or not
+     */
+    const isDisabled = () => {
+        if (isEmpty(roomInfo[0])) return 'disabled';
+        return false;
     };
 
     return (
@@ -101,9 +134,15 @@ const Room = ({ openPopupboxForSettings }) => {
                                 <button id='rm_add_room_info' onClick={roomData}>
                                     Add
                                 </button>
-                                <Link to='/courseinfo'>
-                                    <button id='rm_next_info'>Next →</button>
-                                </Link>
+                                {(isDisabled() && (
+                                    <button id='rm_next_info' className='disabled'>
+                                        Next →
+                                    </button>
+                                )) || (
+                                    <Link to='/courseinfo'>
+                                        <button id='rm_next_info_enabled'>Next →</button>
+                                    </Link>
+                                )}
                             </div>
                         </div>
                         <div className='r_display_data'>
@@ -120,6 +159,18 @@ const Room = ({ openPopupboxForSettings }) => {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position='top-right'
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                type='info'
+            />
         </div>
     );
 };
