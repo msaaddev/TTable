@@ -43,7 +43,7 @@ const DisplayTableData = ({
                 {info[0].teacher !== undefined &&
                     info.map((map) => (
                         <DataCell
-                            key={map.courseId}
+                            key={map.courseID}
                             info_1={map.teacher}
                             info_2={map.courseName}
                             info_3={map.courseID}
