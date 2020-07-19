@@ -50,7 +50,8 @@
     flex: 1;
 }
 
-.ci_align input {
+.ci_align input,
+select {
     flex: 2;
     border: none;
     border-radius: 10px;
@@ -60,7 +61,8 @@
     margin-right: 20px;
 }
 
-.ci_align input:focus {
+.ci_align input:focus,
+select:focus {
     outline: none;
 }
 

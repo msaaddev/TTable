@@ -37,24 +37,18 @@
     margin-top: 60px;
 }
 
-.rm_align_room,
-.rm_align_section,
-.rm_align_session {
+.rm_align {
     display: flex;
     flex-wrap: wrap;
     font-size: 19px;
     margin: 25px 0px;
 }
 
-.rm_align_room label,
-.rm_align_section label,
-.rm_align_session label {
+.rm_align label {
     flex: 1;
 }
 
-.rm_align_room input,
-.rm_align_section input,
-.rm_align_session input {
+.rm_align select {
     flex: 2;
     border: none;
     border-radius: 10px;
@@ -64,9 +58,7 @@
     margin-right: 80px;
 }
 
-.rm_align_room input:focus,
-.rm_align_section input:focus,
-.rm_align_session input:focus {
+.rm_align select:focus {
     outline: none;
 }
 
@@ -138,17 +130,13 @@
         margin: 0px 10px 0px 30px;
     }
 
-    .rm_align_room,
-    .rm_align_section,
-    .rm_align_session {
+    .rm_align {
         flex-direction: column;
         height: 53px;
         margin: 15px 0px;
     }
 
-    .rm_align_room input,
-    .rm_align_section input,
-    .rm_align_session input {
+    .rm_align select {
         margin-right: 20px;
     }
 
