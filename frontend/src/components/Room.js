@@ -9,11 +9,20 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../styles/room.css';
 import '../styles/reacttoastify.css';
 
-const Room = ({ openPopupboxForSettings }) => {
+const Room = ({
+    openPopupboxForSettings,
+    sessionArr,
+    setSessionArr,
+    sectionArr,
+    setSectionArr,
+}) => {
     const [roomInfo, setRoomInfo] = useState([{}]);
-    const [room, setRoom] = useState(0);
-    const [section, setSection] = useState('');
-    const [session, setSession] = useState(0);
+    const [room, setRoom] = useState(1);
+    const [section, setSection] = useState('A');
+    const [session] = useState(18);
+    const [roomNo] = useState([1, 2, 3, 4]);
+    const [sections] = useState(['A', 'B', 'C', 'D']);
+    const [sessions] = useState(['18']);
 
     /**
      *
@@ -33,19 +42,12 @@ const Room = ({ openPopupboxForSettings }) => {
 
     /**
      *
-     * @param {value} - session value
-     */
-    const changeSession = (value) => {
-        setSession(value);
-    };
-
-    /**
-     *
      * creates a temp array, stores data in it and then set the state to temp array
      */
     const roomData = () => {
         let checkRoom = true;
         let checkSection = true;
+        let check = true;
 
         // checking the given information for any error
 
@@ -58,11 +60,28 @@ const Room = ({ openPopupboxForSettings }) => {
                 checkSection = false;
                 break;
             }
+
+            if (
+                roomInfo[i].section === section &&
+                roomInfo[i].room !== room &&
+                roomInfo[i].section !== section &&
+                roomInfo[i].room === room
+            ) {
+                check = false;
+                break;
+            }
         }
 
         // saving the information or presenting it in case of an error
 
-        if (checkRoom && checkSection) {
+        if (checkRoom && checkSection && check) {
+            let tempSection = [...sectionArr, section];
+            setSectionArr(tempSection);
+            if (sessionArr[0] !== session) {
+                let tempSession = [...sessionArr, session];
+                setSessionArr(tempSession);
+            }
+
             const obj = {
                 room,
                 section,
@@ -101,32 +120,41 @@ const Room = ({ openPopupboxForSettings }) => {
                             <h2>Rooms Number</h2>
                             <div className='rm_room_input'>
                                 <div className='rm_input_fields'>
-                                    <div className='rm_align_room'>
+                                    <div className='rm_align'>
                                         <label htmlFor='Room'>Room</label>
-                                        <input
-                                            type='number'
-                                            name='Room'
+                                        <select
+                                            htmlFor='Room'
                                             onChange={(e) => changeRoom(e.target.value)}
-                                            id='rm_room_number'
-                                        />
+                                        >
+                                            {roomNo.map((index) => (
+                                                <option key={index} value={index}>
+                                                    {index}
+                                                </option>
+                                            ))}
+                                        </select>
                                     </div>
-                                    <div className='rm_align_section'>
+                                    <div className='rm_align'>
                                         <label htmlFor='Section'>Section</label>
-                                        <input
-                                            type='text'
-                                            name='section'
+                                        <select
+                                            htmlFor='Section'
                                             onChange={(e) => changeSection(e.target.value)}
-                                            id='rm_section'
-                                        />
+                                        >
+                                            {sections.map((index) => (
+                                                <option key={index} value={index}>
+                                                    {index}
+                                                </option>
+                                            ))}
+                                        </select>
                                     </div>
-                                    <div className='rm_align_session'>
-                                        <label htmlFor='session'>Session</label>
-                                        <input
-                                            type='number'
-                                            name='session'
-                                            onChange={(e) => changeSession(e.target.value)}
-                                            id='rm_session'
-                                        />
+                                    <div className='rm_align'>
+                                        <label htmlFor='Session'>Session</label>
+                                        <select htmlFor='sessions'>
+                                            {sessions.map((index) => (
+                                                <option key={index} value={index}>
+                                                    {index}
+                                                </option>
+                                            ))}
+                                        </select>
                                     </div>
                                 </div>
                             </div>
