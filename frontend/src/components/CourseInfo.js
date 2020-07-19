@@ -9,14 +9,24 @@ import isEmpty from '../utils/isEmpty';
 import '../styles/courseinfo.css';
 import '../styles/reacttoastify.css';
 
-const CourseInfo = ({ openPopupboxForSettings }) => {
+const CourseInfo = ({
+    openPopupboxForSettings,
+    sessionArr,
+    sectionArr,
+    courseNameArr,
+    setcourseNameArr,
+    courseIDArr,
+    setCourseIDArr,
+    creditHrsArr,
+    setCreditHrsArr,
+}) => {
     const [courseInfo, setCourseInfo] = useState([{}]);
     const [teacher, setTeacher] = useState('');
     const [courseName, setCourseName] = useState('');
     const [courseID, setCourseID] = useState(0);
-    const [section, setSection] = useState('');
-    const [session, setSession] = useState(0);
-    const [creditHrs, setCreditHrs] = useState(0);
+    const [section, setSection] = useState(sectionArr[0]);
+    const [session, setSession] = useState(sessionArr[0]);
+    const [creditHrs, setCreditHrs] = useState(1);
 
     /**
      *
@@ -68,13 +78,42 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
 
     /**
      *
+     * setting states for course name, id and credit hours
+     */
+    const setStateForCourseInfo = () => {
+        let tempCourseName = [...courseNameArr, courseName];
+        let tempCourseID = [...courseIDArr, courseID];
+        let tempCreditHrs = [...creditHrsArr, creditHrs];
+        setCreditHrsArr(tempCreditHrs);
+
+        let flagForID = true,
+            flagForName = true;
+        for (let i = 0; i < courseIDArr.length; i++) {
+            if (courseIDArr[i] === courseID) flagForID = false;
+        }
+
+        if (flagForID) setCourseIDArr(tempCourseID);
+
+        for (let i = 0; i < courseName.length; i++) {
+            if (courseNameArr[i] == courseName) flagForName = false;
+        }
+
+        if (flagForName) setcourseNameArr(tempCourseName);
+
+        console.log(courseNameArr, courseIDArr, creditHrsArr);
+    };
+
+    /**
+     *
      *  updates the course information in the table
      */
     const updateCourseInfo = () => {
         let firstCheck = true;
         let secondCheck = true;
 
-        /* checking the given information for any error */
+        setStateForCourseInfo();
+
+        // checking the given information for any error
 
         for (let i = 0; i < courseInfo.length; i++) {
             if (
@@ -91,7 +130,7 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
                 secondCheck = false;
         }
 
-        /* saving the information or presenting error */
+        // saving the information or presenting error
 
         if (firstCheck && secondCheck) {
             const obj = {
@@ -166,30 +205,40 @@ const CourseInfo = ({ openPopupboxForSettings }) => {
                                     </div>
                                     <div className='ci_align'>
                                         <label htmlFor='Section'>Section</label>
-                                        <input
-                                            type='text'
-                                            name='section'
+                                        <select
+                                            htmlFor='Section'
                                             onChange={(e) => handleSection(e.target.value)}
-                                            id='ci_section'
-                                        />
+                                        >
+                                            {sectionArr.map((index) => (
+                                                <option key={index} value={index}>
+                                                    {index}
+                                                </option>
+                                            ))}
+                                        </select>
                                     </div>
                                     <div className='ci_align'>
                                         <label htmlFor='session'>Session</label>
-                                        <input
-                                            type='number'
-                                            name='session'
+                                        <select
+                                            htmlFor='Session'
                                             onChange={(e) => handleSession(e.target.value)}
-                                            id='ci_session'
-                                        />
+                                        >
+                                            {sessionArr.map((index) => (
+                                                <option key={index} value={index}>
+                                                    {index}
+                                                </option>
+                                            ))}
+                                        </select>
                                     </div>
                                     <div className='ci_align'>
                                         <label htmlFor='hrs_credit_hrs'>Credits Hr</label>
-                                        <input
-                                            type='number'
+                                        <select
+                                            htmlFor='Credit Hrs'
                                             onChange={(e) => handleCreditHrs(e.target.value)}
-                                            name='credit_hours'
-                                            id='ci_hrs_per_week'
-                                        />
+                                        >
+                                            <option value='1'>1</option>
+                                            <option value='2'>2</option>
+                                            <option value='3'>3</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
