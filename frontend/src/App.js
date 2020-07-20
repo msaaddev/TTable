@@ -39,6 +39,7 @@ const popupboxConfig = {
 };
 
 function App() {
+    const [roomArr, setRoomArr] = useState([]);
     const [sectionArr, setSectionArr] = useState([]);
     const [sessionArr, setSessionArr] = useState([]);
     const [courseNameArr, setcourseNameArr] = useState([]);
@@ -69,6 +70,8 @@ function App() {
                     render={() => (
                         <Room
                             openPopupboxForSettings={openPopupboxForSettings}
+                            roomArr={roomArr}
+                            setRoomArr={setRoomArr}
                             sectionArr={sectionArr}
                             setSectionArr={setSectionArr}
                             sessionArr={sessionArr}
