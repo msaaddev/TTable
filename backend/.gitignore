@@ -1,0 +1,3 @@
+# ignore folders when commiting
+
+node_modules/
