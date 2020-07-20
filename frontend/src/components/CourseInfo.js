@@ -85,23 +85,22 @@ const CourseInfo = ({
         let tempCourseName = [...courseNameArr, courseName];
         let tempCourseID = [...courseIDArr, courseID];
         let tempCreditHrs = [...creditHrsArr, creditHrs];
-        setCreditHrsArr(tempCreditHrs);
 
         let flagForID = true,
-            flagForName = true;
+            flagForName = true,
+            flagForCreditHrs = true;
+
         for (let i = 0; i < courseIDArr.length; i++) {
-            if (courseIDArr[i] === courseID) flagForID = false;
+            if (courseIDArr[i] === courseID) {
+                flagForID = false;
+                flagForName = false;
+                flagForCreditHrs = false;
+                break;
+            }
         }
-
         if (flagForID) setCourseIDArr(tempCourseID);
-
-        for (let i = 0; i < courseName.length; i++) {
-            if (courseNameArr[i] === courseName) flagForName = false;
-        }
-
         if (flagForName) setcourseNameArr(tempCourseName);
-
-        console.log(courseNameArr, courseIDArr, creditHrsArr);
+        if (flagForCreditHrs) setCreditHrsArr(tempCreditHrs);
     };
 
     /**
@@ -111,8 +110,6 @@ const CourseInfo = ({
     const updateCourseInfo = () => {
         let firstCheck = true;
         let secondCheck = true;
-
-        setStateForCourseInfo();
 
         // checking the given information for any error
 
@@ -134,6 +131,7 @@ const CourseInfo = ({
         // saving the information or presenting error
 
         if (firstCheck && secondCheck) {
+            setStateForCourseInfo();
             const obj = {
                 teacher,
                 courseName,
