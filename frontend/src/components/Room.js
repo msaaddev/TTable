@@ -46,27 +46,15 @@ const Room = ({
      * creates a temp array, stores data in it and then set the state to temp array
      */
     const roomData = () => {
-        let checkRoom = true;
-        let checkSection = true;
         let check = true;
 
         // checking the given information for any error
 
         for (let i = 0; i < roomInfo.length; i++) {
-            if (roomInfo[i].room === room) {
-                checkRoom = false;
-                break;
-            }
-            if (roomInfo[i].section === section) {
-                checkSection = false;
-                break;
-            }
-
             if (
-                roomInfo[i].section === section &&
-                roomInfo[i].room !== room &&
-                roomInfo[i].section !== section &&
-                roomInfo[i].room === room
+                (roomInfo[i].section === section && roomInfo[i].room !== room) ||
+                (roomInfo[i].section !== section && roomInfo[i].room === room) ||
+                (roomInfo[i].section === section && roomInfo[i].room === room)
             ) {
                 check = false;
                 break;
@@ -75,7 +63,7 @@ const Room = ({
 
         // saving the information or presenting it in case of an error
 
-        if (checkRoom && checkSection && check) {
+        if (check) {
             let tempSection = [...sectionArr, section];
             setSectionArr(tempSection);
             if (sessionArr[0] !== session) {
