@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Dropdown = ({ onChange, info, context }) => {
+const Dropdown = ({ onChange, info, context, type }) => {
     return (
-        <select htmlFor={context} onChange={(e) => onChange(e.target.value)}>
+        <select type={type} htmlFor={context} onChange={(e) => onChange(e.target.value)}>
             {info.map((index) => (
                 <option key={index} value={index}>
                     {index}
