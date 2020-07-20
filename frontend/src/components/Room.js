@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
 import InputData from './common/InputData';
@@ -12,6 +13,8 @@ import '../styles/reacttoastify.css';
 
 const Room = ({
     openPopupboxForSettings,
+    roomArr,
+    setRoomArr,
     sessionArr,
     setSessionArr,
     sectionArr,
@@ -70,6 +73,8 @@ const Room = ({
                 let tempSession = [...sessionArr, session];
                 setSessionArr(tempSession);
             }
+            let tempRoom = [...roomArr, room];
+            setRoomArr(tempRoom);
 
             const obj = {
                 room,
@@ -95,6 +100,25 @@ const Room = ({
         return false;
     };
 
+    /**
+     *
+     * sending data to backend to store in the database
+     */
+    const sendRoomData = async () => {
+        const data = {
+            roomInfo,
+            roomArr,
+            sectionArr,
+            sessionArr,
+        };
+
+        try {
+            await axios.post('/room', data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <div className='rm_container'>
             <Nav
@@ -113,16 +137,19 @@ const Room = ({
                                         context='Room'
                                         onChange={changeRoom}
                                         dropdownInfo={roomNo}
+                                        type='number'
                                     />
                                     <InputData
                                         context='Section'
                                         onChange={changeSection}
                                         dropdownInfo={sections}
+                                        type='text'
                                     />
                                     <InputData
                                         context='Session'
                                         onChange=''
                                         dropdownInfo={sessions}
+                                        type='number'
                                     />
                                 </div>
                             </div>
@@ -136,7 +163,9 @@ const Room = ({
                                     </button>
                                 )) || (
                                     <Link to='/courseinfo'>
-                                        <button id='rm_next_info_enabled'>Next →</button>
+                                        <button id='rm_next_info_enabled' onClick={sendRoomData}>
+                                            Next →
+                                        </button>
                                     </Link>
                                 )}
                             </div>

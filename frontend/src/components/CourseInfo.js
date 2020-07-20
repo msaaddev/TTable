@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
 import Nav from '../components/common/Nav';
 import DisplayTableData from '../components/common/DisplayTableData';
 import InputData from './common/InputData';
@@ -161,6 +162,24 @@ const CourseInfo = ({
         return false;
     };
 
+    /**
+     *
+     * sending courses data to the backend
+     */
+    const sendCourseData = async () => {
+        const data = {
+            courseInfo,
+            courseNameArr,
+            courseIDArr,
+            creditHrsArr,
+        };
+        try {
+            await axios.post('/courseinfo', data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <div className='ci_container'>
             <Nav
@@ -206,17 +225,20 @@ const CourseInfo = ({
                                         context='Section'
                                         dropdownInfo={sectionArr}
                                         onChange={handleSection}
+                                        type='text'
                                     />
                                     <InputData
                                         context='Session'
                                         dropdownInfo={sessionArr}
                                         onChange={handleSession}
+                                        type='number'
                                     />
                                     <div className='ci_align'>
                                         <label htmlFor='hrs_credit_hrs'>Credits Hr</label>
                                         <select
                                             htmlFor='Credit Hrs'
                                             onChange={(e) => handleCreditHrs(e.target.value)}
+                                            type='number'
                                         >
                                             <option value='1'>1</option>
                                             <option value='2'>2</option>
@@ -235,7 +257,9 @@ const CourseInfo = ({
                                     </button>
                                 )) || (
                                     <Link to='/schedule'>
-                                        <button id='ci_next_info_enabled'>Generate →</button>
+                                        <button id='ci_next_info_enabled' onClick={sendCourseData}>
+                                            Generate →
+                                        </button>
                                     </Link>
                                 )}
                             </div>
