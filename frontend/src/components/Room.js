@@ -21,7 +21,7 @@ const Room = ({
     setSectionArr,
 }) => {
     const [roomInfo, setRoomInfo] = useState([{}]);
-    const [room, setRoom] = useState(1);
+    const [room, setRoom] = useState('1');
     const [section, setSection] = useState('A');
     const [session] = useState(18);
     const [roomNo] = useState([1, 2, 3, 4]);
