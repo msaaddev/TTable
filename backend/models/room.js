@@ -25,15 +25,15 @@ const createRoomData = async () => {
     const roomData = new Room({
         userAccount: 'ehmad@gmail.com',
         roomInfo: [
-            { room: 'E', section: 'A', session: 18 },
+            { room: '1', section: 'A', session: 18 },
             { room: '2', section: 'B', session: 18 },
         ],
         roomArr: ['1', '2', '3'],
         sectionArr: ['A', 'B', 'C'],
-        session: [18],
+        sessionArr: [18],
     });
 
-    // finding if there is already a record exists with this email
+    // finding if there is already a document exists with this email
     const response = await Room.find({ userAccount: 'ehmad@gmail.com' }).count();
 
     // if there is then update that record otherwise save it
@@ -58,17 +58,16 @@ const getRoomData = async (email) => {
  *
  * @param {roomData} - object that has updated room information
  */
-const updateRoomData = async (roomData) => {
+const updateRoomData = async ({ userAccount, roomInfo, roomArr, sectionArr, sessionArr }) => {
     try {
         const result = await Room.updateOne(
-            { userAccount: roomData.userAccount },
+            { userAccount: userAccount },
             {
                 $set: {
-                    userAccount: roomData.userAccount,
-                    roomInfo: roomData.roomInfo,
-                    sectionArr: roomData.roomArr,
-                    sectionArr: roomData.sectionArr,
-                    sessionArr: roomData.session,
+                    roomInfo: roomInfo,
+                    roomArr: roomArr,
+                    sectionArr: sectionArr,
+                    sessionArr: sessionArr,
                 },
             }
         );
@@ -77,4 +76,4 @@ const updateRoomData = async (roomData) => {
     }
 };
 
-getRoomData('mrsaadirfan@gmail.com');
+createRoomData('mrsaadirfan@gmail.com');
