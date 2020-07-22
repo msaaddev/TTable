@@ -36,7 +36,7 @@ const createRoomData = async () => {
     // finding if there is already a document exists with this email
     const response = await Room.find({ userAccount: 'ehmad@gmail.com' }).count();
 
-    // if there is then update that record otherwise save it
+    // if there is then update that document otherwise save it
     if (response > 0) {
         await updateRoomData(roomData);
         return;
@@ -51,12 +51,14 @@ const getRoomData = async (email) => {
         roomArr: 1,
         sectionArr: 1,
     });
+    if (roomData.length === 0) return console.log('Nothing found!');
     console.log(roomData);
 };
 
 /**
  *
  * @param {roomData} - object that has updated room information
+ * Object destructuring has been applied on the parameters
  */
 const updateRoomData = async ({ userAccount, roomInfo, roomArr, sectionArr, sessionArr }) => {
     try {
