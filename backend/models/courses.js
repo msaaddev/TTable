@@ -60,6 +60,7 @@ const createCourseData = async () => {
     // finding if there is already a document exists with this email
     const response = await Course.find({ userAccount: 'moosaraza@gmail.com' }).count();
 
+    // if there is then update that document in the database otherwise save the information
     if (response > 0) {
         await updateCourseData(courseData);
         return;
