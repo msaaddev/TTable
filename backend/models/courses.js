@@ -68,7 +68,10 @@ const createCourseData = async () => {
     const result = await courseData.save();
 };
 
-// getting course data of a user
+/**
+ *
+ * @param {email} - string that is used to find data
+ */
 const getCourseData = async (email) => {
     const courseData = await Course.find({ userAccount: email }).select({
         courseInfo: 1,

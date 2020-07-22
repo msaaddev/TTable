@@ -68,7 +68,10 @@ const createScheduleData = async () => {
     console.log('Success!');
 };
 
-// getting schedule data of a user
+/**
+ *
+ * @param {email} - string that is used to find data
+ */
 const getScheduleData = async (email) => {
     const scheduleData = await Schedule.find({ userAccount: email }).select({
         schedule: 1,

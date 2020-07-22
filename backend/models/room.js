@@ -44,7 +44,10 @@ const createRoomData = async () => {
     const result = await roomData.save();
 };
 
-// getting room data of a user
+/**
+ *
+ * @param {email} - string that is used to find data
+ */
 const getRoomData = async (email) => {
     const roomData = await Room.find({ userAccount: email }).select({
         roomInfo: 1,
@@ -66,10 +69,10 @@ const updateRoomData = async ({ userAccount, roomInfo, roomArr, sectionArr, sess
             { userAccount: userAccount },
             {
                 $set: {
-                    roomInfo: roomInfo,
-                    roomArr: roomArr,
-                    sectionArr: sectionArr,
-                    sessionArr: sessionArr,
+                    roomInfo,
+                    roomArr,
+                    sectionArr,
+                    sessionArr,
                 },
             }
         );
