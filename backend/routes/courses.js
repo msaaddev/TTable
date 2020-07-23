@@ -5,7 +5,6 @@ const router = express.Router();
 // route for sending courses into database
 router.post('/', (req, res) => {
     courseModel.createCourseData(req.body);
-    console.log(req.body);
 });
 
 // route for getting course information in the database
