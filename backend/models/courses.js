@@ -26,39 +26,11 @@ const courseInfo = new mongoose.Schema({
 // creating a Course class based on our courseInfo schema
 const Course = mongoose.model('CourseInfo', courseInfo);
 
-const createCourseData = async () => {
-    const courseData = new Course({
-        userAccount: 'moosaraza@gmail.com',
-        courseInfo: [
-            {
-                teacher: 'Samyan',
-                courseName: 'AOA',
-                section: 'A',
-                session: 18,
-                creditHrs: '3',
-            },
-            {
-                teacher: 'Samyan',
-                courseName: 'AOA',
-                section: 'B',
-                session: 18,
-                creditHrs: '3',
-            },
-            {
-                teacher: 'Awais',
-                courseName: 'DBMS',
-                section: 'A',
-                session: 18,
-                creditHrs: '3',
-            },
-        ],
-        courseNameArr: ['AOA', 'DBMS'],
-        courseIDArr: ['101', '102'],
-        creditHrsArr: ['3', '3'],
-    });
+const createCourseData = async (obj) => {
+    const courseData = new Course(obj);
 
     // finding if there is already a document exists with this email
-    const response = await Course.find({ userAccount: 'moosaraza@gmail.com' }).count();
+    const response = await Course.find({ userAccount: courseData.userAccount }).count();
 
     // if there is then update that document in the database otherwise save the information
     if (response > 0) {
@@ -79,8 +51,8 @@ const getCourseData = async (email) => {
         courseIDArr: 1,
         creditHrsArr: 1,
     });
-    if (courseData.length === 0) return console.log('Nothing found!');
-    console.log(courseData);
+    if (courseData.length === 0) return false;
+    return courseData;
 };
 
 /**
@@ -111,4 +83,7 @@ const updateCourseData = async ({
     }
 };
 
-getCourseData('mrsaadirfan@gmail.com');
+module.exports = {
+    createCourseData,
+    getCourseData,
+};
