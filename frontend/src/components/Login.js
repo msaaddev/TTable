@@ -8,7 +8,7 @@ import data from '../data/data.json';
 import '../styles/login.css';
 import login from '../images/login.png';
 
-const Login = ({ openPopupboxForSettings, setUserInfo, auth, setAuth }) => {
+const Login = ({ openPopupboxForSettings, setUserInfo }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -59,7 +59,6 @@ const Login = ({ openPopupboxForSettings, setUserInfo, auth, setAuth }) => {
             } else {
                 setUserInfo(res.data);
                 saveToken(token);
-                setAuth(true);
             }
         } catch (error) {
             console.log(error);
