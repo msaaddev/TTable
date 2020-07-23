@@ -8,11 +8,11 @@ import '../styles/schedule.css';
 
 const SectionSchedule = ({ openPopupboxForSettings, section }) => {
     const [sectionSchedule, setSectionSchedule] = useState({
-        monday: [1, 2, 3, 4, 5],
-        tuesday: [1, 2, 3, 4, 5],
-        wednesday: [1, 2, 3, 4, 5],
-        thursday: [1, 2, 3, 4, 5],
-        friday: [1, 2, 3, 4, 5],
+        monday: ['N/A', 'N/A', 'N/A', 'N/A', 'N/A'],
+        tuesday: ['N/A', 'N/A', 'N/A', 'N/A', 'N/A'],
+        wednesday: ['N/A', 'N/A', 'N/A', 'N/A', 'N/A'],
+        thursday: ['N/A', 'N/A', 'N/A', 'N/A', 'N/A'],
+        friday: ['N/A', 'N/A', 'N/A', 'N/A', 'N/A'],
     });
 
     // fetching data from the database
