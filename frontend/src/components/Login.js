@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
@@ -11,6 +11,8 @@ import login from '../images/login.png';
 const Login = ({ openPopupboxForSettings }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    // useEffect(() => {}, [rerender]);
 
     /**
      *
@@ -32,7 +34,8 @@ const Login = ({ openPopupboxForSettings }) => {
      *
      * @param token - JWT token and username to save
      */
-    const saveTokeAndUser = (token, username) => {
+    const saveTokenAndUser = (token, username) => {
+        console.log('adasd');
         localStorage.setItem('token', token);
         localStorage.setItem('username', username);
     };
@@ -54,11 +57,10 @@ const Login = ({ openPopupboxForSettings }) => {
                     token,
                 },
             });
-            console.log(res.data);
             if (res.data === false) {
                 toast('Invalid credentials!');
             } else {
-                saveTokeAndUser(token, res.data.username);
+                saveTokenAndUser(token, res.data.username);
             }
         } catch (error) {
             console.log(error);
@@ -81,6 +83,7 @@ const Login = ({ openPopupboxForSettings }) => {
                             <input
                                 type='email'
                                 id='lgn_signin_email'
+                                autoFocus={true}
                                 onChange={(e) => handleEmail(e.target.value)}
                             />
                         </div>
