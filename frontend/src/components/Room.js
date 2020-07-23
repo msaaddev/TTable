@@ -44,6 +44,7 @@ const Room = ({
                 setRoomInfo(res.data[0].roomInfo);
                 setRoomArr(res.data[0].roomArr);
                 setSectionArr(res.data[0].sectionArr);
+                setSessionArr([18]);
                 toast('Your previous data has been added.');
             } catch (error) {}
         };
