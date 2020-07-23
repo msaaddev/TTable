@@ -34,9 +34,10 @@ const Login = ({ openPopupboxForSettings }) => {
      *
      * @param token - JWT token and username to save
      */
-    const saveTokenAndUser = (token, username) => {
+    const saveInLocalStorage = (token, username, email) => {
         localStorage.setItem('token', token);
         localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
     };
 
     /**
@@ -59,7 +60,7 @@ const Login = ({ openPopupboxForSettings }) => {
             if (res.data === false) {
                 toast('Invalid credentials!');
             } else {
-                saveTokenAndUser(token, res.data.username);
+                saveInLocalStorage(token, res.data.username, res.data.email);
             }
         } catch (error) {
             console.log(error);

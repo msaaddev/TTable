@@ -31,7 +31,7 @@ const createScheduleData = async (obj) => {
     const scheduleData = new Schedule(obj);
 
     // finding if there is already a document exists with this email
-    const response = await Schedule.find({ userAccount: 'mrsaadirfan@gmail.com' }).countDocuments();
+    const response = await Schedule.find({ userAccount: obj.userAccount }).countDocuments();
 
     // if there is then update that document in the database otherwise save it
     if (response > 0) {

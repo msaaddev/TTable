@@ -38,7 +38,7 @@ const Room = ({
                 try {
                     const res = await axios.get('/room', {
                         params: {
-                            email: 'mrsaadirfan@gmail.com',
+                            email: localStorage.getItem('email'),
                         },
                     });
                     console.log(res.data);
@@ -130,7 +130,7 @@ const Room = ({
      * sending data to backend to store in the database
      */
     const sendRoomData = async () => {
-        const userAccount = 'mrsaadirfan@gmail.com';
+        const userAccount = localStorage.getItem('email');
         const data = {
             userAccount,
             roomInfo,

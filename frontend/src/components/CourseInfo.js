@@ -35,7 +35,7 @@ const CourseInfo = ({
             const gettingData = async () => {
                 const res = await axios.get('/courseinfo', {
                     params: {
-                        email: 'mrsaadirfan@gmail.com',
+                        email: localStorage.getItem('email'),
                     },
                 });
                 console.log(res.data);
@@ -186,7 +186,7 @@ const CourseInfo = ({
      * sending courses data to the backend
      */
     const sendCourseData = async () => {
-        const userAccount = 'mrsaadirfan@gmail.com';
+        const userAccount = localStorage.getItem('email');
 
         const data = {
             userAccount,
