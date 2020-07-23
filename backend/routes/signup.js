@@ -6,6 +6,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     const result = await user.createUser(req.body);
     if (!result) res.send('false');
+    else res.send(true);
 });
 
 module.exports = router;

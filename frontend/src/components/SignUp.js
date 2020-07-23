@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
 const SignUp = () => {
@@ -32,6 +33,18 @@ const SignUp = () => {
         setPassword(value);
     };
 
+    /**
+     *
+     * @param token - JWT token to save
+     * @param username - username to save
+     * @param email - email to save
+     */
+    const saveInLocalStorage = (token, username, email) => {
+        localStorage.setItem('token', token);
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+    };
+
     const signUp = async () => {
         if (username !== '' && userAccount !== '' && password !== '') {
             const obj = {
@@ -42,11 +55,15 @@ const SignUp = () => {
 
             try {
                 const res = await axios.post('/', obj);
-                if (!res.data)
+                if (!res.data) {
                     toast(
                         'Already a user exists with this email. Try again with a different email'
                     );
-                else toast('Sign Up Successful!');
+                } else {
+                    toast('Sign Up Successful! Click on Sign In now to see the dashboard');
+                    const token = jwt.sign({ obj }, 'secret');
+                    saveInLocalStorage(token, username, userAccount);
+                }
             } catch (error) {}
         } else toast('Enter data in all fields to sign up.');
     };
