@@ -73,10 +73,7 @@ const updateRoomData = async ({ userAccount, roomInfo, roomArr, sectionArr, sess
     }
 };
 
-// module.exports.createRoomData = createRoomData();
-// module.exports.getRoomData = getRoomData();
-
 module.exports = {
-    createRoomData: createRoomData,
-    getRoomData: getRoomData,
+    createRoomData,
+    getRoomData,
 };
