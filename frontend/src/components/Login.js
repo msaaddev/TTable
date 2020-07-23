@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import Nav from '../components/common/Nav';
@@ -7,10 +8,9 @@ import data from '../data/data.json';
 import '../styles/login.css';
 import login from '../images/login.png';
 
-const Login = ({ openPopupboxForSettings, userInfo, setUserInfo }) => {
+const Login = ({ openPopupboxForSettings, setUserInfo, auth, setAuth }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [username, setUsername] = useState('');
 
     /**
      *
@@ -30,6 +30,14 @@ const Login = ({ openPopupboxForSettings, userInfo, setUserInfo }) => {
 
     /**
      *
+     * @param token - JWT token to save
+     */
+    const saveToken = (token) => {
+        localStorage.setItem('token', token);
+    };
+
+    /**
+     *
      * sending JWT to verify
      */
     const verifyLogin = async () => {
@@ -39,17 +47,26 @@ const Login = ({ openPopupboxForSettings, userInfo, setUserInfo }) => {
         };
         const token = jwt.sign({ userData }, 'secret');
 
-        const payload = {
-            token,
-        };
-
         try {
-            await axios.post('/login', payload);
+            const res = await axios.get('/login', {
+                params: {
+                    token,
+                },
+            });
+            console.log(res.data);
+            if (res.data === false) {
+                toast('Invalid credentials!');
+            } else {
+                setUserInfo(res.data);
+                saveToken(token);
+                setAuth(true);
+            }
         } catch (error) {
             console.log(error);
         }
     };
 
+    if (localStorage.getItem('token')) return <Redirect to='/dashboard' />;
     return (
         <div className='lgn_container'>
             <Nav
@@ -88,6 +105,18 @@ const Login = ({ openPopupboxForSettings, userInfo, setUserInfo }) => {
                     <img src={login} alt='login_image' />
                 </div>
             </div>
+            <ToastContainer
+                position='top-right'
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                type='info'
+            />
         </div>
     );
 };
