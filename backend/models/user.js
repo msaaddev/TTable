@@ -29,7 +29,7 @@ const createUser = async () => {
     });
 
     // finding if there is already a document exists with this credentials
-    const response = await User.find({ userAccount: 'moosaraza@gmail.com' }).count();
+    const response = await User.find({ userAccount: 'moosaraza@gmail.com' }).countDocuments();
 
     // If there is already a user document exists then send an error
     if (response > 0) {

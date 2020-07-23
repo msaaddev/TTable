@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose
     .connect('mongodb://localhost/schedule')
-    .then(() => console.log('MongoDB Connection successful'))
+    .then()
     .catch((err) => console.log(err));
 
 // defining schema of our room information

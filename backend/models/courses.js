@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose
     .connect('mongodb://localhost/schedule')
-    .then(() => console.log('MongoDB Connection successful'))
+    .then()
     .catch((err) => console.log(err));
 
 // defining schema of our course information
@@ -30,7 +30,7 @@ const createCourseData = async (obj) => {
     const courseData = new Course(obj);
 
     // finding if there is already a document exists with this email
-    const response = await Course.find({ userAccount: courseData.userAccount }).count();
+    const response = await Course.find({ userAccount: courseData.userAccount }).countDocuments();
 
     // if there is then update that document in the database otherwise save the information
     if (response > 0) {

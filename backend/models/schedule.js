@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose
     .connect('mongodb://localhost/schedule')
-    .then(() => console.log('MongoDB Connection successful'))
+    .then()
     .catch((err) => console.log(err));
 
 // defining schema of our schedule information
@@ -24,39 +24,14 @@ const Schedule = mongoose.model('ScheduleInfo', scheduleInfo);
 
 /**
  *
- *
  * stores schedule information in the database
+ * @param {obj} - schedule to store in the database
  */
-const createScheduleData = async () => {
-    const scheduleData = new Schedule({
-        userAccount: 'mrsaadirfan@gmail.com',
-        schedule: [
-            {
-                monday: [0, 0, 101, 131, 0],
-                tuesday: [131, 101, 0, 0, 141],
-                wednesday: [101, 0, 121, 151, 151],
-                thursday: [131, 121, 0, 0, 0],
-                friday: [0, 0, 0, 141, 151],
-            },
-            {
-                monday: [101, 121, 141, 151, 0],
-                tuesday: [0, 0, 141, 131, 121],
-                wednesday: [151, 131, 0, 101, 0],
-                thursday: [101, 0, 0, 0, 131],
-                friday: [0, 0, 0, 151, 0],
-            },
-            {
-                monday: [141, 151, 131, 121, 101],
-                tuesday: [141, 0, 131, 121, 151],
-                wednesday: [0, 0, 131, 0, 101],
-                thursday: [0, 0, 101, 0, 0],
-                friday: [0, 151, 0, 0, 0],
-            },
-        ],
-    });
+const createScheduleData = async (obj) => {
+    const scheduleData = new Schedule(obj);
 
     // finding if there is already a document exists with this email
-    const response = await Schedule.find({ userAccount: 'mrsaadirfan@gmail.com' }).count();
+    const response = await Schedule.find({ userAccount: 'mrsaadirfan@gmail.com' }).countDocuments();
 
     // if there is then update that document in the database otherwise save it
     if (response > 0) {
@@ -76,8 +51,8 @@ const getScheduleData = async (email) => {
     const scheduleData = await Schedule.find({ userAccount: email }).select({
         schedule: 1,
     });
-    if (scheduleData.length === 0) return console.log('Nothing found!');
-    console.log(roomData);
+    if (scheduleData.length === 0) return false;
+    return scheduleData;
 };
 
 /**
@@ -100,4 +75,7 @@ const updateScheduleData = async ({ userAccount, schedule }) => {
     }
 };
 
-createScheduleData();
+module.exports = {
+    createScheduleData,
+    getScheduleData,
+};
