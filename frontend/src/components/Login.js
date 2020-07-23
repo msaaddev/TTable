@@ -32,7 +32,9 @@ const Login = ({ openPopupboxForSettings }) => {
 
     /**
      *
-     * @param token - JWT token and username to save
+     * @param token - JWT token to save
+     * @param username - username to save
+     * @param email - email to save
      */
     const saveInLocalStorage = (token, username, email) => {
         localStorage.setItem('token', token);
