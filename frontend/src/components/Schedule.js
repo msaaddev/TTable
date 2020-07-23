@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Nav from './common/Nav';
 import DisplayTimeTable from './common/DisplayTimeTable';
 import data from '../data/data.json';
@@ -7,13 +8,29 @@ import '../styles/schedule.css';
 const Schedule = ({ openPopupboxForSettings }) => {
     const [schedule, setSchedule] = useState([
         {
-            monday: [0, 151, 101, 0, 131],
-            tuesday: [131, 101, 121, 141, 151],
-            wednesday: [101, 0, 0, 141, 131],
-            thursday: [121, 0, 0, 0, 0],
-            friday: [151, 0, 0, 0, 0],
+            monday: [1, 2, 3, 4, 5],
+            tuesday: [1, 2, 3, 4, 5],
+            wednesday: [1, 2, 3, 4, 5],
+            thursday: [1, 2, 3, 4, 5],
+            friday: [1, 2, 3, 4, 5],
         },
     ]);
+
+    useEffect(() => {
+        const gettingData = async () => {
+            try {
+                const res = await axios.get('/schedule', {
+                    params: {
+                        email: 'mrsaadirfan@gmail.com',
+                    },
+                });
+                console.log(res.data);
+                setSchedule(res.data);
+            } catch (error) {}
+        };
+
+        gettingData();
+    }, []);
     return (
         <div className='sh_container'>
             <Nav
