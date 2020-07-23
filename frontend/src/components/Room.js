@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
@@ -27,6 +27,28 @@ const Room = ({
     const [roomNo] = useState([1, 2, 3, 4]);
     const [sections] = useState(['A', 'B', 'C', 'D']);
     const [sessions] = useState([18]);
+
+    /**
+     *
+     * fetching data from the database at the start of application
+     */
+    useEffect(() => {
+        const gettingData = async () => {
+            try {
+                const res = await axios.get('/room', {
+                    params: {
+                        email: 'mrsaadirfan@gmail.com',
+                    },
+                });
+                console.log(res.data);
+                setRoomInfo(res.data[0].roomInfo);
+                setRoomArr(res.data[0].roomArr);
+                setSectionArr(res.data[0].sectionArr);
+                toast('Your previous data has been added.');
+            } catch (error) {}
+        };
+        gettingData();
+    }, []);
 
     /**
      *
@@ -105,7 +127,9 @@ const Room = ({
      * sending data to backend to store in the database
      */
     const sendRoomData = async () => {
+        const userAccount = 'mrsaadirfan@gmail.com';
         const data = {
+            userAccount,
             roomInfo,
             roomArr,
             sectionArr,
