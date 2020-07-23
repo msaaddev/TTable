@@ -13,7 +13,6 @@ import '../styles/reacttoastify.css';
 
 const CourseInfo = ({
     openPopupboxForSettings,
-    userInfo,
     sessionArr,
     sectionArr,
     courseNameArr,
@@ -205,7 +204,7 @@ const CourseInfo = ({
             <div className='ci_container'>
                 <Nav
                     appName={data.app_name}
-                    userName={userInfo.username}
+                    userName={localStorage.getItem('username')}
                     openPopupboxForSettings={openPopupboxForSettings}
                 />
                 <div className='ci_subcontainer'>

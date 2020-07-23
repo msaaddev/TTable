@@ -3,12 +3,12 @@ import Nav from '../components/common/Nav';
 import data from '../data/data.json';
 import '../styles/settings.css';
 
-const Settings = ({ openPopupboxForSettings, userInfo }) => {
+const Settings = ({ openPopupboxForSettings }) => {
     return (
         <div className='st_containers'>
             <Nav
                 appName={data.app_name}
-                userName={userInfo.username}
+                userName={localStorage.getItem('username')}
                 openPopupboxForSettings={openPopupboxForSettings}
             />
             <div className='st_subcontainer_2'>

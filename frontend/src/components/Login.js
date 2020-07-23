@@ -8,7 +8,7 @@ import data from '../data/data.json';
 import '../styles/login.css';
 import login from '../images/login.png';
 
-const Login = ({ openPopupboxForSettings, setUserInfo }) => {
+const Login = ({ openPopupboxForSettings }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -30,10 +30,11 @@ const Login = ({ openPopupboxForSettings, setUserInfo }) => {
 
     /**
      *
-     * @param token - JWT token to save
+     * @param token - JWT token and username to save
      */
-    const saveToken = (token) => {
+    const saveTokeAndUser = (token, username) => {
         localStorage.setItem('token', token);
+        localStorage.setItem('username', username);
     };
 
     /**
@@ -57,8 +58,7 @@ const Login = ({ openPopupboxForSettings, setUserInfo }) => {
             if (res.data === false) {
                 toast('Invalid credentials!');
             } else {
-                setUserInfo(res.data);
-                saveToken(token);
+                saveTokeAndUser(token, res.data.username);
             }
         } catch (error) {
             console.log(error);

@@ -13,7 +13,6 @@ import '../styles/reacttoastify.css';
 
 const Room = ({
     openPopupboxForSettings,
-    userInfo,
     roomArr,
     setRoomArr,
     sessionArr,
@@ -149,7 +148,7 @@ const Room = ({
             <div className='rm_container'>
                 <Nav
                     appName={data.app_name}
-                    userName={userInfo.username}
+                    userName={localStorage.getItem('username')}
                     openPopupboxForSettings={openPopupboxForSettings}
                 />
                 <div className='rm_subcontainer'>

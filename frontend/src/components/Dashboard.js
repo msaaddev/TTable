@@ -4,12 +4,12 @@ import Nav from '../components/common/Nav';
 import data from '../data/data.json';
 import '../styles/dashboard.css';
 
-const Dashboard = ({ openPopupboxForSettings, userInfo }) => {
+const Dashboard = ({ openPopupboxForSettings }) => {
     if (localStorage.getItem('token'))
         return (
             <div className='db_container'>
                 <Nav
-                    userName={userInfo.username}
+                    userName={localStorage.getItem('username')}
                     appName={data.app_name}
                     openPopupboxForSettings={openPopupboxForSettings}
                 />

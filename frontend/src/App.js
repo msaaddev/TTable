@@ -39,7 +39,6 @@ const popupboxConfig = {
 };
 
 function App() {
-    const [userInfo, setUserInfo] = useState([]);
     const [roomArr, setRoomArr] = useState([]);
     const [sectionArr, setSectionArr] = useState([]);
     const [sessionArr, setSessionArr] = useState([]);
@@ -53,32 +52,17 @@ function App() {
                 <Route
                     exact
                     path='/login'
-                    render={() => (
-                        <Login
-                            openPopupboxForSettings={openPopupboxForSettings}
-                            setUserInfo={setUserInfo}
-                        />
-                    )}
+                    render={() => <Login openPopupboxForSettings={openPopupboxForSettings} />}
                 />
                 <Route
                     exact
                     path='/dashboard'
-                    render={() => (
-                        <Dashboard
-                            openPopupboxForSettings={openPopupboxForSettings}
-                            userInfo={userInfo}
-                        />
-                    )}
+                    render={() => <Dashboard openPopupboxForSettings={openPopupboxForSettings} />}
                 />
                 <Route
                     exact
                     path='/settings'
-                    render={() => (
-                        <Settings
-                            openPopupboxForSettings={openPopupboxForSettings}
-                            userInfo={userInfo}
-                        />
-                    )}
+                    render={() => <Settings openPopupboxForSettings={openPopupboxForSettings} />}
                 />
                 <Route
                     exact
@@ -86,7 +70,6 @@ function App() {
                     render={() => (
                         <Room
                             openPopupboxForSettings={openPopupboxForSettings}
-                            userInfo={userInfo}
                             roomArr={roomArr}
                             setRoomArr={setRoomArr}
                             sectionArr={sectionArr}
@@ -102,7 +85,6 @@ function App() {
                     render={() => (
                         <CourseInfo
                             openPopupboxForSettings={openPopupboxForSettings}
-                            userInfo={userInfo}
                             sectionArr={sectionArr}
                             sessionArr={sessionArr}
                             courseNameArr={courseNameArr}
@@ -117,12 +99,7 @@ function App() {
                 <Route
                     exact
                     path='/schedule'
-                    render={() => (
-                        <Schedule
-                            openPopupboxForSettings={openPopupboxForSettings}
-                            userInfo={userInfo}
-                        />
-                    )}
+                    render={() => <Schedule openPopupboxForSettings={openPopupboxForSettings} />}
                 />
                 <Route exact path='/' render={() => <Homepage />} />
             </Switch>
