@@ -111,7 +111,7 @@ const Schedule = ({ openPopupboxForSettings }) => {
                 </div>
             </div>
         );
-    else return <Redirect to='/' />;
+    else return <Redirect to='/login' />;
 };
 
 export default Schedule;
