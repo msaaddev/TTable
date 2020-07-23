@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './common/Nav';
 import DisplayTimeTable from './common/DisplayTimeTable';
 import data from '../data/data.json';
 import '../styles/schedule.css';
 
-const Schedule = ({ openPopupboxForSettings }) => {
+const Schedule = ({ openPopupboxForSettings, userInfo }) => {
     const [schedule, setSchedule] = useState([
         {
             monday: [1, 2, 3, 4, 5],
@@ -74,42 +75,43 @@ const Schedule = ({ openPopupboxForSettings }) => {
             else if (temp === 3) setSect('D');
         }
     };
-
-    return (
-        <div className='sh_container'>
-            <Nav
-                appName={data.app_name}
-                userName='John Doe'
-                openPopupboxForSettings={openPopupboxForSettings}
-            />
-            <div className='sh_subcontainer'>
-                <div className='sh_subcontainer_timetable'>
-                    <div className='sh_enclosing_container'>
-                        <div className='sh_class'>
-                            <h2>Section {sect} | Session 18</h2>
-                        </div>
-                        <div className='sh_schedule'>
-                            <DisplayTimeTable info={sectionSchedule} />
-                        </div>
-                        <div className='sh_btn'>
-                            <button
-                                id='sh_previous_schedule'
-                                onClick={() => changeSectionSchedule('back')}
-                            >
-                                ← back
-                            </button>
-                            <button
-                                id='sh_next_schedule'
-                                onClick={() => changeSectionSchedule('next')}
-                            >
-                                Next →
-                            </button>
+    if (localStorage.getItem('token'))
+        return (
+            <div className='sh_container'>
+                <Nav
+                    appName={data.app_name}
+                    userName={userInfo.username}
+                    openPopupboxForSettings={openPopupboxForSettings}
+                />
+                <div className='sh_subcontainer'>
+                    <div className='sh_subcontainer_timetable'>
+                        <div className='sh_enclosing_container'>
+                            <div className='sh_class'>
+                                <h2>Section {sect} | Session 18</h2>
+                            </div>
+                            <div className='sh_schedule'>
+                                <DisplayTimeTable info={sectionSchedule} />
+                            </div>
+                            <div className='sh_btn'>
+                                <button
+                                    id='sh_previous_schedule'
+                                    onClick={() => changeSectionSchedule('back')}
+                                >
+                                    ← back
+                                </button>
+                                <button
+                                    id='sh_next_schedule'
+                                    onClick={() => changeSectionSchedule('next')}
+                                >
+                                    Next →
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    else return <Redirect to='/' />;
 };
 
 export default Schedule;

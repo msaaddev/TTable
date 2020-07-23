@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Nav from '../components/common/Nav';
@@ -13,6 +13,7 @@ import '../styles/reacttoastify.css';
 
 const Room = ({
     openPopupboxForSettings,
+    userInfo,
     roomArr,
     setRoomArr,
     sessionArr,
@@ -143,86 +144,90 @@ const Room = ({
             console.log(error);
         }
     };
-
-    return (
-        <div className='rm_container'>
-            <Nav
-                appName={data.app_name}
-                userName='John Doe'
-                openPopupboxForSettings={openPopupboxForSettings}
-            />
-            <div className='rm_subcontainer'>
-                <div className='rm_subcontainer_rooms'>
-                    <div className='rm_enclosing_container'>
-                        <div className='rm_input_room_info'>
-                            <h2>Rooms Number</h2>
-                            <div className='rm_room_input'>
-                                <div className='rm_input_fields'>
-                                    <InputData
-                                        context='Room'
-                                        onChange={changeRoom}
-                                        dropdownInfo={roomNo}
-                                        type='number'
-                                    />
-                                    <InputData
-                                        context='Section'
-                                        onChange={changeSection}
-                                        dropdownInfo={sections}
-                                        type='text'
-                                    />
-                                    <InputData
-                                        context='Session'
-                                        onChange=''
-                                        dropdownInfo={sessions}
-                                        type='number'
-                                    />
+    if (localStorage.getItem('token'))
+        return (
+            <div className='rm_container'>
+                <Nav
+                    appName={data.app_name}
+                    userName={userInfo.username}
+                    openPopupboxForSettings={openPopupboxForSettings}
+                />
+                <div className='rm_subcontainer'>
+                    <div className='rm_subcontainer_rooms'>
+                        <div className='rm_enclosing_container'>
+                            <div className='rm_input_room_info'>
+                                <h2>Rooms Number</h2>
+                                <div className='rm_room_input'>
+                                    <div className='rm_input_fields'>
+                                        <InputData
+                                            context='Room'
+                                            onChange={changeRoom}
+                                            dropdownInfo={roomNo}
+                                            type='number'
+                                        />
+                                        <InputData
+                                            context='Section'
+                                            onChange={changeSection}
+                                            dropdownInfo={sections}
+                                            type='text'
+                                        />
+                                        <InputData
+                                            context='Session'
+                                            onChange=''
+                                            dropdownInfo={sessions}
+                                            type='number'
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='rm_btns'>
-                                <button id='rm_add_room_info' onClick={roomData}>
-                                    Add
-                                </button>
-                                {(isDisabled() && (
-                                    <button id='rm_next_info' className='disabled'>
-                                        Next →
+                                <div className='rm_btns'>
+                                    <button id='rm_add_room_info' onClick={roomData}>
+                                        Add
                                     </button>
-                                )) || (
-                                    <Link to='/courseinfo'>
-                                        <button id='rm_next_info_enabled' onClick={sendRoomData}>
+                                    {(isDisabled() && (
+                                        <button id='rm_next_info' className='disabled'>
                                             Next →
                                         </button>
-                                    </Link>
-                                )}
+                                    )) || (
+                                        <Link to='/courseinfo'>
+                                            <button
+                                                id='rm_next_info_enabled'
+                                                onClick={sendRoomData}
+                                            >
+                                                Next →
+                                            </button>
+                                        </Link>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                        <div className='r_display_data'>
-                            <DisplayTableData
-                                heading_1='Room'
-                                heading_2='Section'
-                                heading_3='Session'
-                                heading_4=''
-                                heading_5=''
-                                heading_6=''
-                                info={roomInfo}
-                            />
+                            <div className='r_display_data'>
+                                <DisplayTableData
+                                    heading_1='Room'
+                                    heading_2='Section'
+                                    heading_3='Session'
+                                    heading_4=''
+                                    heading_5=''
+                                    heading_6=''
+                                    info={roomInfo}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
+                <ToastContainer
+                    position='top-right'
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    type='info'
+                />
             </div>
-            <ToastContainer
-                position='top-right'
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                type='info'
-            />
-        </div>
-    );
+        );
+    else return <Redirect to='/' />;
 };
 
 export default Room;

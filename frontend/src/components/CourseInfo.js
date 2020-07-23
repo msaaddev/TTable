@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Nav from '../components/common/Nav';
@@ -13,6 +13,7 @@ import '../styles/reacttoastify.css';
 
 const CourseInfo = ({
     openPopupboxForSettings,
+    userInfo,
     sessionArr,
     sectionArr,
     courseNameArr,
@@ -199,119 +200,123 @@ const CourseInfo = ({
             console.log(error);
         }
     };
-
-    return (
-        <div className='ci_container'>
-            <Nav
-                appName={data.app_name}
-                userName='John Doe'
-                openPopupboxForSettings={openPopupboxForSettings}
-            />
-            <div className='ci_subcontainer'>
-                <div className='ci_subcontainer_rooms'>
-                    <div className='ci_enclosing_container'>
-                        <div className='ci_input_room_info'>
-                            <h2>Course Information</h2>
-                            <div className='ci_room_input'>
-                                <div className='ci_input_fields'>
-                                    <div className='ci_align'>
-                                        <label htmlFor='Name'>Prof. Name</label>
-                                        <input
+    if (localStorage.getItem('token'))
+        return (
+            <div className='ci_container'>
+                <Nav
+                    appName={data.app_name}
+                    userName={userInfo.username}
+                    openPopupboxForSettings={openPopupboxForSettings}
+                />
+                <div className='ci_subcontainer'>
+                    <div className='ci_subcontainer_rooms'>
+                        <div className='ci_enclosing_container'>
+                            <div className='ci_input_room_info'>
+                                <h2>Course Information</h2>
+                                <div className='ci_room_input'>
+                                    <div className='ci_input_fields'>
+                                        <div className='ci_align'>
+                                            <label htmlFor='Name'>Prof. Name</label>
+                                            <input
+                                                type='text'
+                                                name='name'
+                                                onChange={(e) => handleName(e.target.value)}
+                                                id='ci_professor_name'
+                                            />
+                                        </div>
+                                        <div className='ci_align'>
+                                            <label htmlFor='Course_Name'>Course</label>
+                                            <input
+                                                type='text'
+                                                name='course_name'
+                                                onChange={(e) => handleCourseName(e.target.value)}
+                                                id='ci_course_name'
+                                            />
+                                        </div>
+                                        <div className='ci_align'>
+                                            <label htmlFor='Course_ID'>Course ID</label>
+                                            <input
+                                                type='number'
+                                                name='course_ID'
+                                                onChange={(e) => handleCourseID(e.target.value)}
+                                                id='ci_course_id'
+                                            />
+                                        </div>
+                                        <InputData
+                                            context='Section'
+                                            dropdownInfo={sectionArr}
+                                            onChange={handleSection}
                                             type='text'
-                                            name='name'
-                                            onChange={(e) => handleName(e.target.value)}
-                                            id='ci_professor_name'
                                         />
-                                    </div>
-                                    <div className='ci_align'>
-                                        <label htmlFor='Course_Name'>Course</label>
-                                        <input
-                                            type='text'
-                                            name='course_name'
-                                            onChange={(e) => handleCourseName(e.target.value)}
-                                            id='ci_course_name'
-                                        />
-                                    </div>
-                                    <div className='ci_align'>
-                                        <label htmlFor='Course_ID'>Course ID</label>
-                                        <input
+                                        <InputData
+                                            context='Session'
+                                            dropdownInfo={sessionArr}
+                                            onChange={handleSession}
                                             type='number'
-                                            name='course_ID'
-                                            onChange={(e) => handleCourseID(e.target.value)}
-                                            id='ci_course_id'
                                         />
-                                    </div>
-                                    <InputData
-                                        context='Section'
-                                        dropdownInfo={sectionArr}
-                                        onChange={handleSection}
-                                        type='text'
-                                    />
-                                    <InputData
-                                        context='Session'
-                                        dropdownInfo={sessionArr}
-                                        onChange={handleSession}
-                                        type='number'
-                                    />
-                                    <div className='ci_align'>
-                                        <label htmlFor='hrs_credit_hrs'>Credits Hr</label>
-                                        <select
-                                            htmlFor='Credit Hrs'
-                                            onChange={(e) => handleCreditHrs(e.target.value)}
-                                            type='number'
-                                        >
-                                            <option value='1'>1</option>
-                                            <option value='2'>2</option>
-                                            <option value='3'>3</option>
-                                        </select>
+                                        <div className='ci_align'>
+                                            <label htmlFor='hrs_credit_hrs'>Credits Hr</label>
+                                            <select
+                                                htmlFor='Credit Hrs'
+                                                onChange={(e) => handleCreditHrs(e.target.value)}
+                                                type='number'
+                                            >
+                                                <option value='1'>1</option>
+                                                <option value='2'>2</option>
+                                                <option value='3'>3</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='ci_btns'>
-                                <button id='ci_add_room_info' onClick={updateCourseInfo}>
-                                    Add
-                                </button>
-                                {(isDisabled() && (
-                                    <button id='ci_next_info' className='disabled'>
-                                        Generate →
+                                <div className='ci_btns'>
+                                    <button id='ci_add_room_info' onClick={updateCourseInfo}>
+                                        Add
                                     </button>
-                                )) || (
-                                    <Link to='/schedule'>
-                                        <button id='ci_next_info_enabled' onClick={sendCourseData}>
+                                    {(isDisabled() && (
+                                        <button id='ci_next_info' className='disabled'>
                                             Generate →
                                         </button>
-                                    </Link>
-                                )}
+                                    )) || (
+                                        <Link to='/schedule'>
+                                            <button
+                                                id='ci_next_info_enabled'
+                                                onClick={sendCourseData}
+                                            >
+                                                Generate →
+                                            </button>
+                                        </Link>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                        <div className='ci_display_data'>
-                            <DisplayTableData
-                                heading_1='Prof. Name'
-                                heading_2='Course'
-                                heading_3='Course ID'
-                                heading_4='Section'
-                                heading_5='Session'
-                                heading_6='Credit Hrs'
-                                info={courseInfo}
-                            />
+                            <div className='ci_display_data'>
+                                <DisplayTableData
+                                    heading_1='Prof. Name'
+                                    heading_2='Course'
+                                    heading_3='Course ID'
+                                    heading_4='Section'
+                                    heading_5='Session'
+                                    heading_6='Credit Hrs'
+                                    info={courseInfo}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
+                <ToastContainer
+                    position='top-right'
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    type='info'
+                />
             </div>
-            <ToastContainer
-                position='top-right'
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                type='info'
-            />
-        </div>
-    );
+        );
+    else return <Redirect to='/' />;
 };
 
 export default CourseInfo;

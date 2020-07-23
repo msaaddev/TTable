@@ -1,10 +1,12 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import SignUp from './SignUp';
 import data from '../data/data.json';
 import home from '../images/homepage.png';
 import '../styles/homepage.css';
 
 const Homepage = () => {
+    if (localStorage.getItem('token')) return <Redirect to='/dashboard' />;
     return (
         <div className='hp_container'>
             <div className='hp_sub_container_1'>
