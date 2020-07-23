@@ -35,7 +35,6 @@ const Login = ({ openPopupboxForSettings }) => {
      * @param token - JWT token and username to save
      */
     const saveTokenAndUser = (token, username) => {
-        console.log('adasd');
         localStorage.setItem('token', token);
         localStorage.setItem('username', username);
     };
