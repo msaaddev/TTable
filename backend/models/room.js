@@ -20,28 +20,20 @@ const Room = mongoose.model('RoomInfo', roomInfo);
 /**
  *
  * stores room information in the database
+ * @param {obj} - room object to be store in the database
  */
-const createRoomData = async () => {
-    const roomData = new Room({
-        userAccount: 'ehmad@gmail.com',
-        roomInfo: [
-            { room: '1', section: 'A', session: 18 },
-            { room: '2', section: 'B', session: 18 },
-        ],
-        roomArr: ['1', '2', '3'],
-        sectionArr: ['A', 'B', 'C'],
-        sessionArr: [18],
-    });
+const createRoomData = async (obj) => {
+    const roomData = new Room(obj);
 
     // finding if there is already a document exists with this email
-    const response = await Room.find({ userAccount: 'ehmad@gmail.com' }).count();
+    const response = await Room.find({ userAccount: roomData.userAccount }).countDocuments();
 
     // if there is then update that document otherwise save it
     if (response > 0) {
         await updateRoomData(roomData);
         return;
     }
-    const result = await roomData.save();
+    await roomData.save();
 };
 
 /**
@@ -54,8 +46,8 @@ const getRoomData = async (email) => {
         roomArr: 1,
         sectionArr: 1,
     });
-    if (roomData.length === 0) return console.log('Nothing found!');
-    console.log(roomData);
+    if (roomData.length === 0) return false;
+    return roomData;
 };
 
 /**
@@ -81,4 +73,10 @@ const updateRoomData = async ({ userAccount, roomInfo, roomArr, sectionArr, sess
     }
 };
 
-createRoomData('mrsaadirfan@gmail.com');
+// module.exports.createRoomData = createRoomData();
+// module.exports.getRoomData = getRoomData();
+
+module.exports = {
+    createRoomData: createRoomData,
+    getRoomData: getRoomData,
+};
