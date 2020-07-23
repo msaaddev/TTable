@@ -31,20 +31,22 @@ const CourseInfo = ({
     const [creditHrs, setCreditHrs] = useState('1');
 
     useEffect(() => {
-        const gettingData = async () => {
-            const res = await axios.get('/courseinfo', {
-                params: {
-                    email: 'mrsaadirfan@gmail.com',
-                },
-            });
-            console.log(res.data);
-            setCourseInfo(res.data[0].courseInfo);
-            setcourseNameArr(res.data[0].courseNameArr);
-            setCourseIDArr(res.data[0].courseIDArr);
-            setCreditHrsArr(res.data[0].creditHrsArr);
-            toast('Your previous data has been added.');
-        };
-        gettingData();
+        if (localStorage.getItem('token')) {
+            const gettingData = async () => {
+                const res = await axios.get('/courseinfo', {
+                    params: {
+                        email: 'mrsaadirfan@gmail.com',
+                    },
+                });
+                console.log(res.data);
+                setCourseInfo(res.data[0].courseInfo);
+                setcourseNameArr(res.data[0].courseNameArr);
+                setCourseIDArr(res.data[0].courseIDArr);
+                setCreditHrsArr(res.data[0].creditHrsArr);
+                toast('Your previous data has been added.');
+            };
+            gettingData();
+        }
     }, []);
 
     /**

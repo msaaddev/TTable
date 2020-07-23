@@ -28,19 +28,21 @@ const Schedule = ({ openPopupboxForSettings }) => {
 
     // fetching data from the database
     useEffect(() => {
-        const gettingData = async () => {
-            try {
-                const res = await axios.get('/schedule', {
-                    params: {
-                        email: 'mrsaadirfan@gmail.com',
-                    },
-                });
-                setSchedule(res.data);
-                setSectionSchedule(res.data[0]);
-            } catch (error) {}
-        };
+        if (localStorage.getItem('token')) {
+            const gettingData = async () => {
+                try {
+                    const res = await axios.get('/schedule', {
+                        params: {
+                            email: 'mrsaadirfan@gmail.com',
+                        },
+                    });
+                    setSchedule(res.data);
+                    setSectionSchedule(res.data[0]);
+                } catch (error) {}
+            };
 
-        gettingData();
+            gettingData();
+        }
     }, []);
 
     /**

@@ -33,22 +33,24 @@ const Room = ({
      * fetching data from the database at the start of application
      */
     useEffect(() => {
-        const gettingData = async () => {
-            try {
-                const res = await axios.get('/room', {
-                    params: {
-                        email: 'mrsaadirfan@gmail.com',
-                    },
-                });
-                console.log(res.data);
-                setRoomInfo(res.data[0].roomInfo);
-                setRoomArr(res.data[0].roomArr);
-                setSectionArr(res.data[0].sectionArr);
-                setSessionArr([18]);
-                toast('Your previous data has been added.');
-            } catch (error) {}
-        };
-        gettingData();
+        if (localStorage.getItem('token')) {
+            const gettingData = async () => {
+                try {
+                    const res = await axios.get('/room', {
+                        params: {
+                            email: 'mrsaadirfan@gmail.com',
+                        },
+                    });
+                    console.log(res.data);
+                    setRoomInfo(res.data[0].roomInfo);
+                    setRoomArr(res.data[0].roomArr);
+                    setSectionArr(res.data[0].sectionArr);
+                    setSessionArr([18]);
+                    toast('Your previous data has been added.');
+                } catch (error) {}
+            };
+            gettingData();
+        }
     }, []);
 
     /**
