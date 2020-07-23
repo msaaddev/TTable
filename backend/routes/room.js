@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     console.log(req.query.email);
     const data = await roomModel.getRoomData(req.query.email);
     if (data !== false) res.send(data);
-    else res.status(404).send('Nothing Found!');
+    else res.statusCode(404).send('Nothing Found!');
 });
 
 module.exports = router;
