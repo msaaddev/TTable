@@ -13,6 +13,10 @@ import './App.css';
 
 // popup Box Body
 const openPopupboxForSettings = () => {
+    const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+    };
     const content = (
         <div className='popup'>
             <ul id='styling'>
@@ -23,7 +27,7 @@ const openPopupboxForSettings = () => {
                     <li>Generated TimeTable</li>
                 </Link>
                 <Link to='/'>
-                    <li>Logout</li>
+                    <li onClick={logout}>Logout</li>
                 </Link>
             </ul>
         </div>
@@ -35,7 +39,8 @@ const openPopupboxForSettings = () => {
 const popupboxConfig = {
     fadeIn: true,
     fadeInSpeed: 400,
-    overlayOpacity: 0.5,
+    overlayOpacity: 0.8,
+    escClose: true,
 };
 
 function App() {
