@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 
 mongoose
     .connect('mongodb://localhost/schedule')
@@ -9,6 +10,7 @@ mongoose
 const userInfo = new mongoose.Schema({
     userAccount: String,
     password: String,
+    username: String,
 });
 
 // creating a User class based on our userInfo schema
@@ -23,6 +25,7 @@ const createUser = async () => {
     const userData = new User({
         userAccount: 'moosaraza@gmail.com',
         password: '0MRBAGlMbLKNqZl$X',
+        username: 'Moosa Raza',
     });
 
     // finding if there is already a document exists with this credentials
@@ -37,11 +40,25 @@ const createUser = async () => {
 };
 
 // getting user information
-const getUserData = async (email) => {
-    const userData = await User.find({ userAccount: email });
+const getUserData = async (token) => {
+    const user = decodingJWT(token);
+
+    const userData = await User.find({ userAccount: user.email });
     if (userData.length === 0)
         return console.log('Cannot find user account. Create an account first.');
-    console.log(userData);
+    console.log('Success!! :' + userData);
 };
 
-createUser('moosaraza@gmail.com');
+/**
+ *
+ * @param {token} - JWT token
+ */
+const decodingJWT = (token) => {
+    const { userData } = jwt.verify(token, 'secret');
+    return userData;
+};
+
+module.exports = {
+    createUser: createUser,
+    getUserData: getUserData,
+};
