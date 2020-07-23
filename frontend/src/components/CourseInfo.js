@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
@@ -28,7 +28,20 @@ const CourseInfo = ({
     const [courseID, setCourseID] = useState(0);
     const [section, setSection] = useState(sectionArr[0]);
     const [session, setSession] = useState(sessionArr[0]);
-    const [creditHrs, setCreditHrs] = useState(1);
+    const [creditHrs, setCreditHrs] = useState('1');
+
+    useEffect(() => {
+        const gettingData = async () => {
+            const res = await axios.get('/courseinfo', {
+                params: {
+                    email: 'mrsaadirfan@gmail.com',
+                },
+            });
+            console.log(res.data);
+            setCourseInfo(res.data[0].courseInfo);
+        };
+        gettingData();
+    }, []);
 
     /**
      *
@@ -167,7 +180,10 @@ const CourseInfo = ({
      * sending courses data to the backend
      */
     const sendCourseData = async () => {
+        const userAccount = 'mrsaadirfan@gmail.com';
+
         const data = {
+            userAccount,
             courseInfo,
             courseNameArr,
             courseIDArr,
