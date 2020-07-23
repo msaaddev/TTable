@@ -46,6 +46,7 @@ const SignUp = () => {
                     toast(
                         'Already a user exists with this email. Try again with a different email'
                     );
+                else toast('Sign Up Successful!');
             } catch (error) {}
         } else toast('Enter data in all fields to sign up.');
     };
