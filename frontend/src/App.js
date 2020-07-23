@@ -10,6 +10,7 @@ import Schedule from './components/Schedule';
 import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
 import 'react-popupbox/dist/react-popupbox.css';
 import './App.css';
+import SectionSchedule from './components/SectionSchedule';
 
 // popup Box Body
 const openPopupboxForSettings = () => {
@@ -51,6 +52,7 @@ function App() {
     const [courseNameArr, setcourseNameArr] = useState([]);
     const [courseIDArr, setCourseIDArr] = useState([]);
     const [creditHrsArr, setCreditHrsArr] = useState([]);
+    const [sectionForSchedule, setSectionForSchedule] = useState(0);
 
     return (
         <>
@@ -63,7 +65,12 @@ function App() {
                 <Route
                     exact
                     path='/dashboard'
-                    render={() => <Dashboard openPopupboxForSettings={openPopupboxForSettings} />}
+                    render={() => (
+                        <Dashboard
+                            openPopupboxForSettings={openPopupboxForSettings}
+                            setSectionForSchedule={setSectionForSchedule}
+                        />
+                    )}
                 />
                 <Route
                     exact
@@ -106,6 +113,12 @@ function App() {
                     exact
                     path='/schedule'
                     render={() => <Schedule openPopupboxForSettings={openPopupboxForSettings} />}
+                />
+
+                <Route
+                    exact
+                    path='/section_schedule'
+                    render={() => <SectionSchedule section={sectionForSchedule} />}
                 />
                 <Route exact path='/' render={() => <Homepage />} />
                 <Redirect to='/' />
