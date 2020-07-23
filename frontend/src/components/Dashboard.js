@@ -4,7 +4,11 @@ import Nav from '../components/common/Nav';
 import data from '../data/data.json';
 import '../styles/dashboard.css';
 
-const Dashboard = ({ openPopupboxForSettings }) => {
+const Dashboard = ({ openPopupboxForSettings, setSectionForSchedule }) => {
+    const handleSection = (value) => {
+        setSectionForSchedule(value);
+    };
+
     if (localStorage.getItem('token'))
         return (
             <div className='db_container'>
@@ -17,15 +21,27 @@ const Dashboard = ({ openPopupboxForSettings }) => {
                     <div className='db_subcontainer_tables'>
                         <div className='db_timetable'>
                             <p>{data.section_a}</p>
-                            <button id='db_section_a'>View</button>
+                            <Link to='/section_schedule'>
+                                <button id='db_section_a' onClick={() => handleSection('0')}>
+                                    View
+                                </button>
+                            </Link>
                         </div>
                         <div className='db_timetable'>
                             <p>{data.section_b}</p>
-                            <button id='db_section_b'>View</button>
+                            <Link to='/section_schedule'>
+                                <button id='db_section_b' onClick={() => handleSection('1')}>
+                                    View
+                                </button>
+                            </Link>
                         </div>
                         <div className='db_timetable'>
                             <p>{data.section_c}</p>
-                            <button id='db_section_c'>View</button>
+                            <Link to='/section_schedule'>
+                                <button id='db_section_c' onClick={() => handleSection('2')}>
+                                    View
+                                </button>
+                            </Link>
                         </div>
                         <div className='db_timetable_btn'>
                             <Link to='/room'>
