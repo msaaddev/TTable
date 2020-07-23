@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
@@ -39,6 +39,7 @@ const openPopupboxForSettings = () => {
 const popupboxConfig = {
     fadeIn: true,
     fadeInSpeed: 400,
+    fadeOutSpeed: 500,
     overlayOpacity: 0.8,
     escClose: true,
 };
@@ -107,6 +108,7 @@ function App() {
                     render={() => <Schedule openPopupboxForSettings={openPopupboxForSettings} />}
                 />
                 <Route exact path='/' render={() => <Homepage />} />
+                <Redirect to='/' />
             </Switch>
             <PopupboxContainer {...popupboxConfig} />
         </>
