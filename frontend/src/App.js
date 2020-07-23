@@ -39,6 +39,7 @@ const popupboxConfig = {
 };
 
 function App() {
+    const [userInfo, setUserInfo] = useState([]);
     const [roomArr, setRoomArr] = useState([]);
     const [sectionArr, setSectionArr] = useState([]);
     const [sessionArr, setSessionArr] = useState([]);
@@ -52,7 +53,13 @@ function App() {
                 <Route
                     exact
                     path='/login'
-                    render={() => <Login openPopupboxForSettings={openPopupboxForSettings} />}
+                    render={() => (
+                        <Login
+                            openPopupboxForSettings={openPopupboxForSettings}
+                            userInfo={userInfo}
+                            setUserInfo={setUserInfo}
+                        />
+                    )}
                 />
                 <Route
                     exact
