@@ -56,7 +56,6 @@ function App() {
                     render={() => (
                         <Login
                             openPopupboxForSettings={openPopupboxForSettings}
-                            userInfo={userInfo}
                             setUserInfo={setUserInfo}
                         />
                     )}
@@ -64,12 +63,22 @@ function App() {
                 <Route
                     exact
                     path='/dashboard'
-                    render={() => <Dashboard openPopupboxForSettings={openPopupboxForSettings} />}
+                    render={() => (
+                        <Dashboard
+                            openPopupboxForSettings={openPopupboxForSettings}
+                            userInfo={userInfo}
+                        />
+                    )}
                 />
                 <Route
                     exact
                     path='/settings'
-                    render={() => <Settings openPopupboxForSettings={openPopupboxForSettings} />}
+                    render={() => (
+                        <Settings
+                            openPopupboxForSettings={openPopupboxForSettings}
+                            userInfo={userInfo}
+                        />
+                    )}
                 />
                 <Route
                     exact
@@ -77,6 +86,7 @@ function App() {
                     render={() => (
                         <Room
                             openPopupboxForSettings={openPopupboxForSettings}
+                            userInfo={userInfo}
                             roomArr={roomArr}
                             setRoomArr={setRoomArr}
                             sectionArr={sectionArr}
@@ -92,6 +102,7 @@ function App() {
                     render={() => (
                         <CourseInfo
                             openPopupboxForSettings={openPopupboxForSettings}
+                            userInfo={userInfo}
                             sectionArr={sectionArr}
                             sessionArr={sessionArr}
                             courseNameArr={courseNameArr}
@@ -106,7 +117,12 @@ function App() {
                 <Route
                     exact
                     path='/schedule'
-                    render={() => <Schedule openPopupboxForSettings={openPopupboxForSettings} />}
+                    render={() => (
+                        <Schedule
+                            openPopupboxForSettings={openPopupboxForSettings}
+                            userInfo={userInfo}
+                        />
+                    )}
                 />
                 <Route exact path='/' render={() => <Homepage />} />
             </Switch>
