@@ -63,7 +63,7 @@ router.get('/', async (req, res) => {
     const courseData = await courseModel.getCourseData(req.query.email);
 
     // if a schedule exist then sending it to the client side
-    if (req.query.flag) {
+    if (req.query.flag === true) {
         const data = await scheduleModel.getScheduleData(req.query.email);
         const formatData = format(
             data[0].schedule,

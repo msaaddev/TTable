@@ -34,6 +34,7 @@ const Schedule = ({ openPopupboxForSettings }) => {
                     const res = await axios.get('/schedule', {
                         params: {
                             email: localStorage.getItem('email'),
+                            flag: false,
                         },
                     });
                     setSchedule(res.data);
