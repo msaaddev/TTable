@@ -63,6 +63,7 @@ const Login = ({ openPopupboxForSettings }) => {
                 toast('Invalid credentials!');
             } else {
                 saveInLocalStorage(token, res.data.username, res.data.email);
+                window.location.href = '/dashboard';
             }
         } catch (error) {
             console.log(error);
