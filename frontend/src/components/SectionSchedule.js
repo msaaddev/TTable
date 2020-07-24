@@ -6,7 +6,7 @@ import DisplayTimeTable from './common/DisplayTimeTable';
 import data from '../data/data.json';
 import '../styles/schedule.css';
 
-const SectionSchedule = ({ openPopupboxForSettings, section }) => {
+const SectionSchedule = ({ openPopupboxForSettings, section, sectionName }) => {
     const [sectionSchedule, setSectionSchedule] = useState({
         monday: ['N/A', 'N/A', 'N/A', 'N/A', 'N/A'],
         tuesday: ['N/A', 'N/A', 'N/A', 'N/A', 'N/A'],
@@ -45,7 +45,7 @@ const SectionSchedule = ({ openPopupboxForSettings, section }) => {
                     <div className='sh_subcontainer_timetable'>
                         <div className='sh_enclosing_container'>
                             <div className='sh_class'>
-                                <h2>Section | Session 18</h2>
+                                <h2>Section {sectionName} | Session 18</h2>
                             </div>
                             <div className='sh_schedule'>
                                 <DisplayTimeTable info={sectionSchedule} />

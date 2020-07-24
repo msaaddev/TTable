@@ -53,6 +53,7 @@ function App() {
     const [courseIDArr, setCourseIDArr] = useState([]);
     const [creditHrsArr, setCreditHrsArr] = useState([]);
     const [sectionForSchedule, setSectionForSchedule] = useState(0);
+    const [sectionName] = useState(['A', 'B', 'C']);
 
     return (
         <>
@@ -118,7 +119,9 @@ function App() {
                 <Route
                     exact
                     path='/section_schedule'
-                    render={() => <SectionSchedule section={sectionForSchedule} />}
+                    render={() => (
+                        <SectionSchedule section={sectionForSchedule} sectionName={sectionName[sectionForSchedule]} />
+                    )}
                 />
                 <Route exact path='/' render={() => <Homepage />} />
                 <Redirect to='/' />

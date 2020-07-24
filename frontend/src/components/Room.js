@@ -24,8 +24,8 @@ const Room = ({
     const [room, setRoom] = useState('1');
     const [section, setSection] = useState('A');
     const [session] = useState(18);
-    const [roomNo] = useState([1, 2, 3, 4]);
-    const [sections] = useState(['A', 'B', 'C', 'D']);
+    const [roomNo] = useState([1, 2, 3]);
+    const [sections] = useState(['A', 'B', 'C']);
     const [sessions] = useState([18]);
 
     /**
