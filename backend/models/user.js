@@ -35,12 +35,34 @@ const createUser = async (obj) => {
     return true;
 };
 
+/**
+ *
+ * @param {data} - data to be updated with in the database
+ */
+const updateUser = async ({ userAccount, password }) => {
+    try {
+        const result = await User.updateOne(
+            { userAccount: userAccount },
+            {
+                $set: {
+                    userAccount,
+                    password,
+                },
+            }
+        );
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 // getting user information
 const getUserData = async (token) => {
     const user = decodingJWT(token);
-    const userData = await User.find({ password: user.password });
-    if (userData.length === 0) return false;
-    return userData;
+    if (user !== undefined) {
+        const userData = await User.find({ password: user.password });
+        if (userData.length === 0) return false;
+        return userData;
+    } else return false;
 };
 
 /**
@@ -53,6 +75,7 @@ const decodingJWT = (token) => {
 };
 
 module.exports = {
-    createUser: createUser,
-    getUserData: getUserData,
+    createUser,
+    getUserData,
+    updateUser,
 };
