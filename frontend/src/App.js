@@ -120,7 +120,10 @@ function App() {
                     exact
                     path='/section_schedule'
                     render={() => (
-                        <SectionSchedule section={sectionForSchedule} sectionName={sectionName[sectionForSchedule]} />
+                        <SectionSchedule
+                            section={sectionForSchedule}
+                            sectionName={sectionName[sectionForSchedule]}
+                        />
                     )}
                 />
                 <Route exact path='/' render={() => <Homepage />} />
