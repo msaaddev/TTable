@@ -41,7 +41,6 @@ const Room = ({
                             email: localStorage.getItem('email'),
                         },
                     });
-                    console.log(res.data);
                     setRoomInfo(res.data[0].roomInfo);
                     setRoomArr(res.data[0].roomArr);
                     setSectionArr(res.data[0].sectionArr);

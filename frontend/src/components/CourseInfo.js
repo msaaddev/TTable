@@ -38,7 +38,6 @@ const CourseInfo = ({
                         email: localStorage.getItem('email'),
                     },
                 });
-                console.log(res.data);
                 setCourseInfo(res.data[0].courseInfo);
                 setcourseNameArr(res.data[0].courseNameArr);
                 setCourseIDArr(res.data[0].courseIDArr);
