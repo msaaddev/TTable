@@ -38,11 +38,13 @@ const CourseInfo = ({
                         email: localStorage.getItem('email'),
                     },
                 });
-                setCourseInfo(res.data[0].courseInfo);
-                setcourseNameArr(res.data[0].courseNameArr);
-                setCourseIDArr(res.data[0].courseIDArr);
-                setCreditHrsArr(res.data[0].creditHrsArr);
-                toast('Your previous data has been added.');
+                if (res.data !== false) {
+                    setCourseInfo(res.data[0].courseInfo);
+                    setcourseNameArr(res.data[0].courseNameArr);
+                    setCourseIDArr(res.data[0].courseIDArr);
+                    setCreditHrsArr(res.data[0].creditHrsArr);
+                    toast('Your previous data has been added.');
+                }
             };
             gettingData();
         }

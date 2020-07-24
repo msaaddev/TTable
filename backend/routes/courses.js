@@ -10,8 +10,9 @@ router.post('/', (req, res) => {
 // route for getting course information in the database
 router.get('/', async (req, res) => {
     const data = await courseModel.getCourseData(req.query.email);
+    console.log(data);
     if (data !== false) res.send(data);
-    else res.statusCode(404).send('Nothing Found!');
+    else res.send('false');
 });
 
 module.exports = router;

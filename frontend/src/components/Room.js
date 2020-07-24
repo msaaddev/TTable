@@ -41,11 +41,13 @@ const Room = ({
                             email: localStorage.getItem('email'),
                         },
                     });
-                    setRoomInfo(res.data[0].roomInfo);
-                    setRoomArr(res.data[0].roomArr);
-                    setSectionArr(res.data[0].sectionArr);
-                    setSessionArr([18]);
-                    toast('Your previous data has been added.');
+                    if (res.data !== false) {
+                        setRoomInfo(res.data[0].roomInfo);
+                        setRoomArr(res.data[0].roomArr);
+                        setSectionArr(res.data[0].sectionArr);
+                        setSessionArr([18]);
+                        toast('Your previous data has been added.');
+                    } else console.log('Nothing found!');
                 } catch (error) {}
             };
             gettingData();
