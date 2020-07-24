@@ -23,6 +23,7 @@ const SectionSchedule = ({ openPopupboxForSettings, section, sectionName }) => {
                     const res = await axios.get('/schedule', {
                         params: {
                             email: localStorage.getItem('email'),
+                            flag: true,
                         },
                     });
                     setSectionSchedule(res.data[section]);
