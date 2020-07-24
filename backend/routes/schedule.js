@@ -63,37 +63,23 @@ router.get('/', async (req, res) => {
     const courseData = await courseModel.getCourseData(req.query.email);
     const data = await scheduleModel.getScheduleData(req.query.email);
 
-    // if a schedule exist then sending it to the client side
-    if (data) {
-        const formatData = format(
-            data[0].schedule,
-            courseData[0].courseIDArr,
-            courseData[0].courseNameArr
-        );
-        res.send(formatData);
-    } else {
-        for (let i = 0; i < courseData[0].courseIDArr.length; i++)
-            algo(
-                courseData[0].courseIDArr[i],
-                courseData[0].creditHrsArr[i],
-                roomData[0].sectionArr,
-                reservedHrs,
-                availableHrs
-            );
-
-        const formatData = format(
+    for (let i = 0; i < courseData[0].courseIDArr.length; i++)
+        algo(
+            courseData[0].courseIDArr[i],
+            courseData[0].creditHrsArr[i],
+            roomData[0].sectionArr,
             reservedHrs,
-            courseData[0].courseIDArr,
-            courseData[0].courseNameArr
+            availableHrs
         );
 
-        res.send(formatData);
-        const obj = {
-            userAccount: req.query.email,
-            schedule: reservedHrs,
-        };
-        scheduleModel.createScheduleData(obj);
-    }
+    const formatData = format(reservedHrs, courseData[0].courseIDArr, courseData[0].courseNameArr);
+
+    res.send(formatData);
+    const obj = {
+        userAccount: req.query.email,
+        schedule: reservedHrs,
+    };
+    scheduleModel.createScheduleData(obj);
 });
 
 module.exports = router;
