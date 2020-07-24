@@ -67,8 +67,8 @@ select:focus {
 }
 
 .ci_btns button {
-    margin: 10px 5px;
-    padding: 10px 40px;
+    margin: 10px 0px;
+    padding: 10px 60px;
     background-color: #5f58e1;
     font-family: 'Song Myung', serif;
     font-size: 16px;
@@ -86,7 +86,7 @@ select:focus {
 
 #ci_next_info_enabled,
 #ci_next_info {
-    margin: 10px 0px 0px 5px;
+    margin: 10px 0px 0px 20px;
 }
 
 .ci_btns button:focus {
@@ -103,7 +103,7 @@ select:focus {
 }
 
 #ci_next_info_enabled:hover {
-    padding-right: 50px;
+    padding-right: 70px;
 }
 
 .ci_btns .disabled {
@@ -151,8 +151,8 @@ select:focus {
     }
 
     .ci_btns button {
-        margin: 10px 0px 0px 10px;
-        padding: 10px 28px;
+        margin: 10px 0px 0px 30px;
+        padding: 10px 31px;
     }
 
     .ci_btns button:nth-child(2) {

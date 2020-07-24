@@ -39,6 +39,8 @@ const createScheduleData = async (obj) => {
         return;
     }
     const result = await scheduleData.save();
+    console.log(result);
+    console.log('Success!');
 };
 
 /**

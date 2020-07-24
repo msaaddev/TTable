@@ -38,7 +38,7 @@
 }
 
 .rm_btns button {
-    margin: 10px 5px;
+    margin: 10px 20px;
     padding: 10px 60px;
     background-color: #5f58e1;
     font-family: 'Song Myung', serif;
@@ -106,8 +106,8 @@
     }
 
     .rm_btns button {
-        margin: 10px 0px 0px 15px;
-        padding: 10px 20px;
+        margin: 10px 0px 0px 30px;
+        padding: 10px 31px;
     }
 
     .rm_btns button:nth-child(2) {
