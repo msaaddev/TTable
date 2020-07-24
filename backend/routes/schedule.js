@@ -61,10 +61,10 @@ const availableHrs = [
 router.get('/', async (req, res) => {
     const roomData = await roomModel.getRoomData(req.query.email);
     const courseData = await courseModel.getCourseData(req.query.email);
-    const data = await scheduleModel.getScheduleData(req.query.email);
 
     // if a schedule exist then sending it to the client side
     if (req.query.flag) {
+        const data = await scheduleModel.getScheduleData(req.query.email);
         const formatData = format(
             data[0].schedule,
             courseData[0].courseIDArr,
