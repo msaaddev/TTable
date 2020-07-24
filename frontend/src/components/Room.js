@@ -118,6 +118,16 @@ const Room = ({
 
     /**
      *
+     * clear existing data
+     */
+    const clearData = () => {
+        setRoomInfo([{}]);
+        setRoomArr([]);
+        setSectionArr([]);
+    };
+
+    /**
+     *
      * checks if button should be disabled or not
      */
     const isDisabled = () => {
@@ -183,6 +193,9 @@ const Room = ({
                                 <div className='rm_btns'>
                                     <button id='rm_add_room_info' onClick={roomData}>
                                         Add
+                                    </button>
+                                    <button id='rm_clear_data' onClick={clearData}>
+                                        Clear
                                     </button>
                                     {(isDisabled() && (
                                         <button id='rm_next_info' className='disabled'>

@@ -183,6 +183,17 @@ const CourseInfo = ({
 
     /**
      *
+     * clears pre existing data
+     */
+    const clearData = () => {
+        setCourseInfo([{}]);
+        setcourseNameArr([]);
+        setCourseIDArr([]);
+        setCreditHrsArr([]);
+    };
+
+    /**
+     *
      * sending courses data to the backend
      */
     const sendCourseData = async () => {
@@ -272,6 +283,9 @@ const CourseInfo = ({
                                 <div className='ci_btns'>
                                     <button id='ci_add_room_info' onClick={updateCourseInfo}>
                                         Add
+                                    </button>
+                                    <button id='ci_clear_data' onClick={clearData}>
+                                        Clear
                                     </button>
                                     {(isDisabled() && (
                                         <button id='ci_next_info' className='disabled'>
