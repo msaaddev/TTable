@@ -10,7 +10,7 @@
  * @return {object} - that contains arrays with scheduled classes with respect to sections
  */
 
-const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
+module.exports = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
     let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'];
 
     /* this loop is to iterate over sections */
@@ -58,68 +58,3 @@ const scheduler = (courseID, creditHrs, section, availableHrs, reservedHrs) => {
         }
     }
 };
-
-/* section array */
-
-const section = ['A', 'B', 'C'];
-
-/* reserved timeslots for different sections */
-
-const reservedHrs = [
-    {
-        monday: [0, 0, 0, 0, 0],
-        tuesday: [0, 0, 0, 0, 0],
-        wednesday: [0, 0, 0, 0, 0],
-        thursday: [0, 0, 0, 0, 0],
-        friday: [0, 0, 0, 0, 0],
-    },
-    {
-        monday: [0, 0, 0, 0, 0],
-        tuesday: [0, 0, 0, 0, 0],
-        wednesday: [0, 0, 0, 0, 0],
-        thursday: [0, 0, 0, 0, 0],
-        friday: [0, 0, 0, 0, 0],
-    },
-    {
-        monday: [0, 0, 0, 0, 0],
-        tuesday: [0, 0, 0, 0, 0],
-        wednesday: [0, 0, 0, 0, 0],
-        thursday: [0, 0, 0, 0, 0],
-        friday: [0, 0, 0, 0, 0],
-    },
-];
-
-/* available timeslots for different section */
-
-const availableHrs = [
-    {
-        monday: [1, 2, 3, 4, 5],
-        tuesday: [1, 2, 3, 4, 5],
-        wednesday: [1, 2, 3, 4, 5],
-        thursday: [1, 2, 3, 4, 5],
-        friday: [1, 2, 3, 4, 5],
-    },
-    {
-        monday: [1, 2, 3, 4, 5],
-        tuesday: [1, 2, 3, 4, 5],
-        wednesday: [1, 2, 3, 4, 5],
-        thursday: [1, 2, 3, 4, 5],
-        friday: [1, 2, 3, 4, 5],
-    },
-    {
-        monday: [1, 2, 3, 4, 5],
-        tuesday: [1, 2, 3, 4, 5],
-        wednesday: [1, 2, 3, 4, 5],
-        thursday: [1, 2, 3, 4, 5],
-        friday: [1, 2, 3, 4, 5],
-    },
-];
-
-let courses = [101, 121, 131, 141, 151];
-let creditHrs = [3, 2, 3, 2, 3];
-
-for (let i = 0; i < courses.length; i++) {
-    scheduler(courses[i], creditHrs[i], section, availableHrs, reservedHrs);
-}
-
-console.log(reservedHrs);
