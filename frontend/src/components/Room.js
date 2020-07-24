@@ -41,7 +41,6 @@ const Room = ({
                             email: localStorage.getItem('email'),
                         },
                     });
-                    console.log(res.data);
                     setRoomInfo(res.data[0].roomInfo);
                     setRoomArr(res.data[0].roomArr);
                     setSectionArr(res.data[0].sectionArr);
@@ -127,6 +126,17 @@ const Room = ({
 
     /**
      *
+     * clearing already existed data
+     */
+    const clearData = () => {
+        setRoomInfo([{}]);
+        setRoomArr([]);
+        setSectionArr([]);
+        setSessionArr([18]);
+    };
+
+    /**
+     *
      * sending data to backend to store in the database
      */
     const sendRoomData = async () => {
@@ -183,6 +193,9 @@ const Room = ({
                                 <div className='rm_btns'>
                                     <button id='rm_add_room_info' onClick={roomData}>
                                         Add
+                                    </button>
+                                    <button id='rm_clear_data' onClick={clearData}>
+                                        Clear
                                     </button>
                                     {(isDisabled() && (
                                         <button id='rm_next_info' className='disabled'>
