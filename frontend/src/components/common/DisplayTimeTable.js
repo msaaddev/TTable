@@ -13,7 +13,9 @@ const DisplayTimeTable = ({ info }) => {
             <div className='dtt_container'>
                 <ul>
                     {head.map((index) => (
-                        <li key={index}>{index}</li>
+                        <li key={index} className='ddt_head_of_table'>
+                            {index}
+                        </li>
                     ))}
                 </ul>
                 {helpArr.map((index) => (

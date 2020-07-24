@@ -58,6 +58,13 @@
     background-color: #38393d;
 }
 
+.sh_class h2 {
+    margin: 7px 0px;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 600;
+    font-size: 35px !important;
+}
+
 /* responsive styles */
 
 @media screen and (max-width: 600px) {

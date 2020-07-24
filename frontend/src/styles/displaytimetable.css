@@ -17,7 +17,7 @@
 .dtt_container li {
     display: table-cell;
     text-align: center;
-    border: 2px solid;
+    border: 2px solid #ffffff;
     border-bottom: none;
     vertical-align: middle;
     word-wrap: break-word;
@@ -25,8 +25,29 @@
     font-size: 16px;
 }
 
+.dtt_container li:nth-child(odd) {
+    background-color: #c94d3f;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.dtt_container li:nth-child(even) {
+    background-color: #38393d;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
 .dtt_container ul:last-child {
-    border-bottom: 2px solid;
+    border-bottom: 2px solid #ffffff;
+}
+
+.ddt_head_of_table,
+.ddt_days {
+    background-color: #5f58e1 !important;
+    color: #ffffff;
+    border: none;
+    font-weight: 500;
+    border-radius: 10px;
 }
 
 /* responsive styles */
