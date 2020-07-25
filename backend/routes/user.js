@@ -7,13 +7,13 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const userData = await user.getUserData(req.query.token);
 
-    if (userData === false) res.send('false');
+    if (userData === false) res.status(404).send('false');
     else {
         const obj = {
             email: userData[0].userAccount,
             username: userData[0].username,
         };
-        res.send(obj);
+        res.status(200).send(obj);
     }
 });
 
@@ -27,14 +27,14 @@ router.post('/', async (req, res) => {
     const token = jwt.sign({ userData }, 'secret');
     const result = await user.getUserData(token);
 
-    if (result === false) res.send('false');
+    if (result === false) res.status(404).send('false');
     else {
         const newData = {
             userAccount: obj.email,
             password: obj.newPassword,
         };
         await user.updateUser(newData);
-        res.send('true');
+        res.status(200).send('true');
     }
 });
 

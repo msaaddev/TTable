@@ -79,7 +79,7 @@ router.post('/', async (req, res) => {
     availableHrs = JSON.parse(JSON.stringify(flush.availableHrs));
     reservedHrs = JSON.parse(JSON.stringify(flush.reservedHrs));
     await scheduleModel.createScheduleData(obj);
-    res.send('Success');
+    res.status(200).send('Success');
 });
 
 // route for getting course information in the database
@@ -87,9 +87,9 @@ router.get('/', async (req, res) => {
     const data = await courseModel.getCourseData(req.query.email);
 
     if (data !== false) {
-        res.send(data);
+        res.status(200).send(data);
     } else {
-        res.send('false');
+        res.status(404).send('false');
     }
 });
 

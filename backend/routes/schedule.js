@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
         courseData[0].courseNameArr
     );
 
-    res.send(formatData);
+    res.status(200).send(formatData);
 });
 
 module.exports = router;

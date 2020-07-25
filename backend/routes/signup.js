@@ -5,8 +5,8 @@ const router = express.Router();
 // route for getting user
 router.post('/', async (req, res) => {
     const result = await user.createUser(req.body);
-    if (!result) res.send('false');
-    else res.send(true);
+    if (!result) res.status(404).send('false');
+    else res.status(200).send(true);
 });
 
 module.exports = router;
