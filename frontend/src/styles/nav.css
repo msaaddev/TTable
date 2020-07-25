@@ -29,13 +29,18 @@
 
 .nav_subcontainer_1 h4 {
     color: #ffffff;
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Shadows Into Light', cursive;
     margin: 40px 100px;
+    border-bottom: solid 2px;
+    transition: all 0.5s;
 }
 
 .nav_subcontainer_1 h4:hover {
+    transform: scale(1.1);
+    color: #5f58e1;
     cursor: pointer;
+    border-color: #c94d3f;
 }
 
 @media screen and (max-width: 600px) {
