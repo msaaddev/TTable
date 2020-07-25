@@ -6,7 +6,6 @@ const format = require('../utils/format');
 
 // route for getting schedule
 router.get('/', async (req, res) => {
-    console.log(req.query.email);
     const courseData = await courseModel.getCourseData(req.query.email);
     const scheduleData = await scheduleModel.getScheduleData(req.query.email);
 
