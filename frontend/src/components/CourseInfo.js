@@ -33,7 +33,7 @@ const CourseInfo = ({
     useEffect(() => {
         if (localStorage.getItem('token')) {
             const gettingData = async () => {
-                const res = await axios.get('/courseinfo', {
+                const res = await axios.get('/courses', {
                     params: {
                         email: localStorage.getItem('email'),
                     },
@@ -208,7 +208,7 @@ const CourseInfo = ({
             creditHrsArr,
         };
         try {
-            await axios.post('/courseinfo', data);
+            await axios.post('/courses', data);
         } catch (error) {
             console.log(error);
         }

@@ -20,7 +20,7 @@ const SectionSchedule = ({ openPopupboxForSettings, section, sectionName }) => {
         if (localStorage.getItem('token')) {
             const gettingData = async () => {
                 try {
-                    const res = await axios.get('/schedule', {
+                    const res = await axios.get('/getschedule', {
                         params: {
                             email: localStorage.getItem('email'),
                             flag: true,

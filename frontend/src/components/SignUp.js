@@ -54,7 +54,7 @@ const SignUp = () => {
             };
 
             try {
-                const res = await axios.post('/', obj);
+                const res = await axios.post('/signup', obj);
                 if (!res.data) {
                     toast(
                         'Already a user exists with this email. Try again with a different email'

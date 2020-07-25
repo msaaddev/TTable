@@ -27,6 +27,7 @@ const Room = ({
     const [roomNo] = useState([1, 2, 3]);
     const [sections] = useState(['A', 'B', 'C']);
     const [sessions] = useState([18]);
+    const [protectDuplicate, setProtectDuplicate] = useState(true);
 
     /**
      *
@@ -36,18 +37,24 @@ const Room = ({
         if (localStorage.getItem('token')) {
             const gettingData = async () => {
                 try {
-                    const res = await axios.get('/room', {
-                        params: {
-                            email: localStorage.getItem('email'),
-                        },
-                    });
-                    if (res.data !== false) {
-                        setRoomInfo(res.data[0].roomInfo);
-                        setRoomArr(res.data[0].roomArr);
-                        setSectionArr(res.data[0].sectionArr);
-                        setSessionArr([18]);
-                        toast('Your previous data has been added.');
-                    } else console.log('Nothing found!');
+                    console.log('working');
+                    await axios
+                        .get('/roominfo', {
+                            params: {
+                                email: localStorage.getItem('email'),
+                            },
+                        })
+                        .then((res) => {
+                            if (res.data !== false) {
+                                setRoomInfo(res.data[0].roomInfo);
+                                setRoomArr(res.data[0].roomArr);
+                                setSectionArr(res.data[0].sectionArr);
+                                setSessionArr([18]);
+                                setProtectDuplicate(false);
+                                toast('Your previous data has been added.');
+                            } else console.log('Nothing found!');
+                        })
+                        .catch((err) => console.log(err));
                 } catch (error) {}
             };
             gettingData();
@@ -93,14 +100,16 @@ const Room = ({
         // saving the information or presenting it in case of an error
 
         if (check) {
-            let tempSection = [...sectionArr, section];
-            setSectionArr(tempSection);
-            if (sessionArr[0] !== session) {
-                let tempSession = [...sessionArr, session];
-                setSessionArr(tempSession);
+            if (protectDuplicate) {
+                let tempSection = [...sectionArr, section];
+                setSectionArr(tempSection);
+                if (sessionArr[0] !== session) {
+                    let tempSession = [...sessionArr, session];
+                    setSessionArr(tempSession);
+                }
+                let tempRoom = [...roomArr, room];
+                setRoomArr(tempRoom);
             }
-            let tempRoom = [...roomArr, room];
-            setRoomArr(tempRoom);
 
             const obj = {
                 room,
@@ -135,6 +144,7 @@ const Room = ({
         setRoomArr([]);
         setSectionArr([]);
         setSessionArr([18]);
+        setProtectDuplicate(true);
     };
 
     /**
@@ -152,7 +162,7 @@ const Room = ({
         };
 
         try {
-            await axios.post('/room', data);
+            await axios.post('/roominfo', data);
         } catch (error) {
             console.log(error);
         }
