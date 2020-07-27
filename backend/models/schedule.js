@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose
-    .connect('mongodb://localhost/schedule')
+    .connect('mongodb://localhost/schedule', { useNewUrlParser: true })
     .then()
     .catch((err) => console.log(err));
 
