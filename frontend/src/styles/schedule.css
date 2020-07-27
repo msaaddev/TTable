@@ -13,10 +13,16 @@
 .sh_subcontainer_timetable {
     width: 80%;
     height: 72vh;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.8);
     border: none;
     border-radius: 10px;
     margin-top: 20px;
+    transition: all 0.7s;
+}
+
+.sh_subcontainer_timetable:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 35px #5f58e1;
 }
 
 .sh_enclosing_container {

@@ -17,12 +17,17 @@
 .dtt_container li {
     display: table-cell;
     text-align: center;
-    border: 2px solid #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.7);
     border-bottom: none;
     vertical-align: middle;
     word-wrap: break-word;
     padding: 20px 30px;
     font-size: 16px;
+    transition: all 0.5s;
+}
+
+.dtt_container li:hover {
+    background-color: rgba(255, 255, 255, 9);
 }
 
 .dtt_container li:nth-child(odd) {

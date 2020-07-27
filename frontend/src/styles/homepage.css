@@ -36,11 +36,12 @@
     margin: 150px 150px 0px 0px;
     width: 350px;
     height: 450px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.95);
     transition: all 0.5s;
 }
 
 .hp_sign_up:hover {
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: 0px 0px 35px #5f58e1;
 }
 

@@ -13,10 +13,16 @@
 .lgn_login_form {
     height: 160px;
     flex: 1.5;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.95);
     border: none;
     border-radius: 10px;
     margin: 50px 0px 50px 100px;
+    transition: all 0.5s;
+}
+
+.lgn_login_form:hover {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 35px #5f58e1;
 }
 
 .lgn_img {

@@ -1,80 +1,86 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* body styles */
+body {
+    background: url('./images/cover.jpg');
+    background-size: cover;
 }
 
 /* popup styles */
 
 .popupbox-wrapper {
-  background-color: #5f58e1;
-  color: #ffffff;
-  font-family: 'Song Myung', serif;
-  border-radius: 10px;
-  font-size: 18px;
-  height: 220px;
+    background-color: #5f58e1;
+    color: #ffffff;
+    font-family: 'Song Myung', serif;
+    border-radius: 10px;
+    font-size: 18px;
+    height: 220px;
 }
 
 #styling {
-  list-style-type: none;
-  padding: 0px !important;
+    list-style-type: none;
+    padding: 0px !important;
 }
 
 #styling li {
-  padding: 10px 0px 10px 20px;
-  margin: 5px 0px;
-  border: solid 1px;
-  border-radius: 10px;
-  transition: all 0.5s;
+    padding: 10px 0px 10px 20px;
+    margin: 5px 0px;
+    border: solid 1px;
+    border-radius: 10px;
+    transition: all 0.5s;
 }
 
 #styling a {
-  color: #ffffff;
-  text-decoration: none;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 #styling li:hover {
-  background-color: #c94d3f;
-  cursor: pointer;
+    background-color: #c94d3f;
+    cursor: pointer;
 }
 
 /* responsive styles */
 
 @media screen and (max-width: 600px) {
-  .popupbox-wrapper {
-      width: 200px;
-  }
+    .popupbox-wrapper {
+        width: 200px;
+    }
 }

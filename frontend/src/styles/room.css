@@ -13,10 +13,15 @@
 .rm_subcontainer_rooms {
     width: 70%;
     height: 60vh;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9);
     border: none;
     border-radius: 10px;
     margin-top: 50px;
+    transition: all 0.5s;
+}
+.rm_subcontainer_rooms:hover {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 35px #5f58e1;
 }
 
 .rm_enclosing_container {
