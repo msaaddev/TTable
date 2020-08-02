@@ -1,0 +1,24 @@
+{
+    "name": "TTable",
+    "version": "1.0.1",
+    "description": "Taking care of all of your scheduling needs",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/msaaddev/CS311S20PID43.git"
+    },
+    "keywords": [
+        "scheduling",
+        "reactjs",
+        "nodejs"
+    ],
+    "author": {
+        "name": "Saad Irfa",
+        "email": "me@msaad.dev",
+        "url": "https://msaad.dev"
+    },
+    "license": "Apache",
+    "bugs": {
+        "url": "https://github.com/msaaddev/CS311S20PID43/issues"
+    },
+    "homepage": "https://github.com/msaaddev/CS311S20PID43#readme"
+}
