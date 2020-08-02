@@ -17,7 +17,7 @@
 
 ## 🎩 WORKING
 
-![Working](https://p21.tr4.n0.cdn.getcloudapp.com/items/2NuydZNg/Screen%20Recording%202020-07-28%20at%2002.22%20AM.gif?v=774fd04cf45c0c1f181ecb9fe9a3ccf5)
+![Working](images/working.gif)
 
 ## 🚀 LOCAL DEVELOPMENT
 
