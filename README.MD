@@ -19,7 +19,16 @@
 
 ![Working](images/working.gif)
 
-## 🚀 LOCAL DEVELOPMENT
+## 🖥 ENVIRONMENT
+
+| No. | Software                  | Version | Reason                |
+| --- | ------------------------- | ------- | --------------------- |
+| 1.  | macOS Catalina/Windows 10 | 10.15.5 | Default OS on laptop  |
+| 2.  | Visual Studio Code        | 1.47.3  | Personal Preference   |
+| 3.  | Node                      | 10.13.0 | To run backend server |
+| 4.  | MongoDB Server            | 4.2.8   | To run mongoDB server |
+| 5.  | MongoDB Campus            | 1.21.2  | To see data visually  |
+
 
 If you want to start this project on your local device, follow the steps below:
 
