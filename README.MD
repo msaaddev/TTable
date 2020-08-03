@@ -30,16 +30,21 @@
 | 5.  | MongoDB Campus            | 1.21.2  | To see data visually  |
 
 
+## 🚀 LOCAL DEVELOPMENT GUIDELINES
+
 If you want to start this project on your local device, follow the steps below:
 
-1. Make sure you have **Node** & **MongoDB** installed on your computer.
+1. Make sure you have **Node** & **MongoDB** installed on your computer. If you don't have them, you can install Node from [here](https://nodejs.org/en/download/) and you can follow this [video](https://www.youtube.com/watch?v=FwMwO8pXfq0) to setup MongoDB on your computer.
 2. Open your terminal and clone this repository first.
-3. Now change your directory to **frontend** & type *npm i* and <kbd>Enter</kbd>
-4. Now change your directory to **backend** & type *npm i* and <kbd>Enter</kbd>
+3. Now change your directory to **frontend** & type *npm i* and press <kbd>Enter</kbd>
+4. Now change your directory to **backend** & type *npm i* and press <kbd>Enter</kbd>
 5. Now open **three** terminals separately.
 6. In the first terminal, change your directory to **frontend** and type *npm start* and press <kbd>Enter</kbd>
 7. In the second terminal, change your directory to **backend** and type *node index.js* and press <kbd>Enter</kbd>
 8. In the third terminal, type *mongod* and press <kbd>Enter</kbd>
+9. Once the project is running, you need to sign up first before moving on to login because there will be no users in the database.
+
+> Note: Step 1, 2, 3, 4 & 9 are only required to be done once.
 
 ## 🔑 LICENSE
 
