@@ -27,7 +27,7 @@
 | 2.  | Visual Studio Code        | 1.47.3  | Personal Preference   |
 | 3.  | Node                      | 10.13.0 | To run backend server |
 | 4.  | MongoDB Server            | 4.2.8   | To run mongoDB server |
-| 5.  | MongoDB Campus            | 1.21.2  | To see data visually  |
+| 5.  | MongoDB Compass           | 1.21.2  | To see data visually  |
 
 
 ## 🚀 LOCAL DEVELOPMENT GUIDELINES
