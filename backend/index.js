@@ -14,7 +14,7 @@ app.use(cors());
 // routes
 app.use('/roominfo', room);
 app.use('/courses', courses);
-app.use('/loginuser', user);
+app.use('/login', user);
 app.use('/getschedule', schedule);
 app.use('/signup', signup);
 

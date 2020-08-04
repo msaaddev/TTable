@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const userData = await user.getUserData(req.query.token);
 
-    if (userData === false) res.status(404).send('false');
+    if (userData === false) res.send('false').status(404);
     else {
         const obj = {
             email: userData[0].userAccount,
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     const token = jwt.sign({ userData }, 'secret');
     const result = await user.getUserData(token);
 
-    if (result === false) res.status(404).send('false');
+    if (result === false) res.send('false').status(404);
     else {
         const newData = {
             userAccount: obj.email,

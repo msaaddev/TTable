@@ -54,7 +54,7 @@ const Login = ({ openPopupboxForSettings }) => {
         const token = jwt.sign({ userData }, 'secret');
 
         try {
-            const res = await axios.get('/loginuser', {
+            const res = await axios.get('/login', {
                 params: {
                     token,
                 },
