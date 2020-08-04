@@ -2,7 +2,7 @@
 
 <div align="center">
 	<h1>🗓 TTable <br>
-	<img src="https://img.shields.io/badge/version-v1.1.0-green">
+	<img src="https://img.shields.io/badge/version-v1.2.0-green">
 	<img src="https://img.shields.io/badge/license-Apache-green">
 	</h1>
 </div>
