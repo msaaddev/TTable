@@ -12,7 +12,8 @@ router.get('/', async (req, res) => {
     const formatData = format(
         scheduleData[0].schedule,
         courseData[0].courseIDArr,
-        courseData[0].courseNameArr
+        courseData[0].courseNameArr,
+        courseData[0].courseInfo
     );
 
     res.status(200).send(formatData);

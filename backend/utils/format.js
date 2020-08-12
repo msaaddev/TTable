@@ -1,4 +1,5 @@
-module.exports = (reservedHrs, courseIDArr, courseNameArr) => {
+module.exports = (reservedHrs, courseIDArr, courseNameArr, courseInfo) => {
+    console.log(courseInfo);
     const formatedData = [
         {
             monday: [0, 0, 0, 0, 0],
@@ -34,7 +35,14 @@ module.exports = (reservedHrs, courseIDArr, courseNameArr) => {
                     formatedData[[i]][day][k] = 'Free';
                 } else {
                     const index = courseIDArr.indexOf(id);
-                    formatedData[[i]][day][k] = courseNameArr[index];
+                    let teacher;
+                    for (let i = 0; i < courseInfo.length; i++) {
+                        if (parseInt(courseInfo[i].courseID) === id) {
+                            teacher = courseInfo[i].teacher;
+                            break;
+                        }
+                    }
+                    formatedData[[i]][day][k] = `${courseNameArr[index]} (${teacher})`;
                 }
             }
         }
