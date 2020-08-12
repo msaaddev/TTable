@@ -131,6 +131,7 @@ const CourseInfo = ({
     const updateCourseInfo = () => {
         let firstCheck = true;
         let secondCheck = true;
+        let thirdCheck = true;
 
         // checking the given information for any error
 
@@ -147,11 +148,14 @@ const CourseInfo = ({
                 (courseInfo[i].courseID !== courseID && courseInfo[i].courseName === courseName)
             )
                 secondCheck = false;
+
+            if (courseInfo[i].courseID === courseID && courseInfo[i].teacher !== teacher)
+                thirdCheck = false;
         }
 
         // saving the information or presenting error
 
-        if (firstCheck && secondCheck) {
+        if (firstCheck && secondCheck && thirdCheck) {
             setStateForCourseInfo();
             const obj = {
                 teacher,
@@ -170,6 +174,8 @@ const CourseInfo = ({
             if (!secondCheck)
                 toast('Can not use Course ID of one course for another course and viceversa');
             else if (!firstCheck) toast('Can not use same information again!');
+            else if (!thirdCheck)
+                toast('Can not add an already added course with different teacher name!');
         }
     };
 
