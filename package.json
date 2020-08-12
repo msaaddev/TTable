@@ -1,6 +1,6 @@
 {
     "name": "TTable",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Taking care of all of your scheduling needs",
     "repository": {
         "type": "git",
@@ -12,7 +12,7 @@
         "nodejs"
     ],
     "author": {
-        "name": "Saad Irfa",
+        "name": "Saad Irfan",
         "email": "me@msaad.dev",
         "url": "https://msaad.dev"
     },
