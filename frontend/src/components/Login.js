@@ -12,13 +12,11 @@ const Login = ({ openPopupboxForSettings }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // useEffect(() => {}, [rerender]);
-
     /**
      *
      * @param {value} - email to store in the state
      */
-    const handleEmail = (value) => {
+    const handleEmail = value => {
         setEmail(value);
     };
 
@@ -26,7 +24,7 @@ const Login = ({ openPopupboxForSettings }) => {
      *
      * @param {value} - password to store in the state
      */
-    const handlePassword = (value) => {
+    const handlePassword = value => {
         setPassword(value);
     };
 
@@ -87,7 +85,7 @@ const Login = ({ openPopupboxForSettings }) => {
                                 type='email'
                                 id='lgn_signin_email'
                                 autoFocus={true}
-                                onChange={(e) => handleEmail(e.target.value)}
+                                onChange={e => handleEmail(e.target.value)}
                             />
                         </div>
                         <div className='lgn_align_password'>
@@ -95,7 +93,7 @@ const Login = ({ openPopupboxForSettings }) => {
                             <input
                                 type='password'
                                 id='lgn_signin_password'
-                                onChange={(e) => handlePassword(e.target.value)}
+                                onChange={e => handlePassword(e.target.value)}
                             />
                         </div>
                     </div>

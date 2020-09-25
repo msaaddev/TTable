@@ -24,7 +24,7 @@ const Settings = ({ openPopupboxForSettings }) => {
 
     /**
      *
-     * @param {password} - email to update in state
+     * @param {password} - password to update in state
      */
     const handleOldPassword = (password) => {
         setOldPassword(password);
@@ -32,7 +32,7 @@ const Settings = ({ openPopupboxForSettings }) => {
 
     /**
      *
-     * @param {password} - email to update in state
+     * @param {password} - password to update in state
      */
     const handleNewPassword = (password) => {
         setNewPassword(password);
