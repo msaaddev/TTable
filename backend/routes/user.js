@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
     }
 });
 
-// route for getting user
-router.post('/', async (req, res) => {
+// route for updating user
+router.put('/', async (req, res) => {
     const { obj } = decodingJWT(req.body.token);
     const userData = {
         userAccount: obj.email,
@@ -38,7 +38,11 @@ router.post('/', async (req, res) => {
     }
 });
 
-const decodingJWT = (token) => {
+/**
+ *
+ * @param {token} - token to decode
+ */
+const decodingJWT = token => {
     const obj = jwt.verify(token, 'secret');
     return obj;
 };

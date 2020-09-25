@@ -54,7 +54,7 @@ const Settings = ({ openPopupboxForSettings }) => {
                 token,
             };
             try {
-                const res = await axios.post('/login', payload);
+                const res = await axios.put('/login', payload);
                 if (res.data === false) toast('Invalid email or password!');
                 else toast('Password has been successfully updated.');
             } catch (error) {}
