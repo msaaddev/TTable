@@ -7,7 +7,6 @@
  * @param {section} - array that stores sections taking that course
  * @param {availableHrs} - array that stores available time slots for each section
  * @param {reservedHrs} - array that stores reserved time slots for each section
- * @return {object} - that contains arrays with scheduled classes with respect to sections
  */
 
 module.exports = (courseID, creditHrs, section, reservedHrs, availableHrs) => {
