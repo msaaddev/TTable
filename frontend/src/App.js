@@ -25,7 +25,7 @@ const openPopupboxForSettings = () => {
                     <li>Settings</li>
                 </Link>
                 <Link to='/dashboard'>
-                    <li>Generated TimeTable</li>
+                    <li>Dashboard</li>
                 </Link>
                 <Link to='/'>
                     <li onClick={logout}>Logout</li>
