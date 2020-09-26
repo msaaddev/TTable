@@ -1,5 +1,4 @@
 module.exports = (reservedHrs, courseIDArr, courseNameArr, courseInfo) => {
-    console.log(courseInfo);
     const formatedData = [
         {
             monday: [0, 0, 0, 0, 0],
